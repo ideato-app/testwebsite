@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="pageTitleAppDev">App Development - Idea to App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = { /* ... Same Tailwind config ... */
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        orbitron: ['Orbitron', 'sans-serif'],
+                    },
+                    colors: {
+                        'neon-cyan': 'rgb(0 255 255 / <alpha-value>)',
+                        'neon-pink': 'rgb(255 0 255 / <alpha-value>)',
+                        'dark-bg': '#0f172a',
+                        'light-bg': '#f8fafc',
+                    },
+                    boxShadow: {
+                        'neon-cyan-soft': '0 0 8px 2px rgb(0 255 255 / 0.5)',
+                        'neon-pink-soft': '0 0 8px 2px rgb(255 0 255 / 0.5)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* ... Same custom styles ... */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #4f46e5; border-radius: 4px; }
+        .dark ::-webkit-scrollbar-thumb { background: #818cf8; }
+        .neon-text-cyan { text-shadow: 0 0 5px theme('colors.neon-cyan'), 0 0 10px theme('colors.neon-cyan'); }
+        .neon-text-pink { text-shadow: 0 0 5px theme('colors.neon-pink'), 0 0 10px theme('colors.neon-pink'); }
+         .dark .neon-glow-cyan {
+            box-shadow: 0 0 8px 2px rgb(0 255 255 / 0.6), 0 0 12px 4px rgb(0 255 255 / 0.4);
+            border-color: rgb(0 255 255 / 0.7);
+        }
+         .dark .neon-glow-pink {
+            box-shadow: 0 0 8px 2px rgb(255 0 255 / 0.6), 0 0 12px 4px rgb(255 0 255 / 0.4);
+            border-color: rgb(255 0 255 / 0.7);
+        }
+    </style>
+</head>
+<body class="bg-light-bg dark:bg-dark-bg text-slate-800 dark:text-slate-200 font-sans transition-colors duration-300">
+
+    <header class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-md">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-orbitron font-bold dark:neon-text-cyan light:text-indigo-600" data-translate="companyName">Idea to App</a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="index.html" class="hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT" data-translate="navHome">Home</a>
+                <a href="services.html" class="text-indigo-600 dark:text-neon-cyan-DEFAULT font-semibold" data-translate="navServices">Services</a>
+                <a href="index.html#contact" class="hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT" data-translate="navContact">Contact</a>
+            </div>
+            <div class="flex items-center space-x-3">
+                <button id="theme-toggle" class="p-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700">
+                    <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun hidden dark:hidden"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                    <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon hidden dark:hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                </button>
+                <button id="language-toggle" class="p-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 text-sm font-semibold">EN/AR</button>
+                 <button id="mobile-menu-button" class="md:hidden p-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-800 p-4">
+            <a href="index.html" class="block py-2 hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT" data-translate="navHome">Home</a>
+            <a href="services.html" class="block py-2 text-indigo-600 dark:text-neon-cyan-DEFAULT font-semibold" data-translate="navServices">Services</a>
+            <a href="index.html#contact" class="block py-2 hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT" data-translate="navContact">Contact</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="text-sm font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT uppercase tracking-wider" data-translate="serviceLabel">Our Services</span>
+                <h1 class="mt-2 text-4xl sm:text-5xl font-orbitron font-bold">
+                    <span class="dark:neon-text-cyan light:text-indigo-700" data-translate="serviceAppDevTitle">App Development</span>
+                </h1>
+                <p class="mt-4 text-lg md:text-xl text-slate-600 dark:text-slate-300" data-translate="serviceAppDevTagline">
+                    Innovative mobile and desktop applications for iOS, Android, macOS, and Windows, designed to perform.
+                </p>
+            </div>
+
+            <article class="prose prose-lg dark:prose-invert max-w-none mx-auto">
+                <p data-translate="serviceAppDevP1">
+                    Idea to App transforms your concepts into high-performing applications. Our skilled team, with over 3 years of experience, develops native, hybrid, and cross-platform apps that deliver seamless user experiences and robust functionality. We cover the entire lifecycle, from <a href="idea-validation.html" class="text-indigo-500 dark:text-neon-cyan-DEFAULT/90 hover:underline" data-translate="serviceIdeaValidationLink">Idea Validation</a> to <a href="app-deployment.html" class="text-indigo-500 dark:text-neon-cyan-DEFAULT/90 hover:underline" data-translate="serviceAppStoreLink">App Store Deployment</a>.
+                </p>
+
+                <h2 data-translate="serviceAppDevSub1Title">Our App Development Expertise</h2>
+                <ul>
+                    <li data-translate="serviceAppDevExpertise1"><strong>iOS App Development:</strong> Engaging and high-performance apps for iPhone and iPad using Swift and Objective-C.</li>
+                    <li data-translate="serviceAppDevExpertise2"><strong>Android App Development:</strong> Feature-rich applications for the diverse Android ecosystem using Kotlin and Java.</li>
+                    <li data-translate="serviceAppDevExpertise3"><strong>Cross-Platform Development:</strong> Cost-effective solutions using frameworks like React Native and Flutter to target multiple platforms with a single codebase.</li>
+                    <li data-translate="serviceAppDevExpertise4"><strong>macOS App Development:</strong> Powerful and intuitive desktop applications for the Apple ecosystem.</li>
+                    <li data-translate="serviceAppDevExpertise5"><strong>Windows App Development:</strong> Reliable and scalable applications for the Windows desktop environment.</li>
+                    <li data-translate="serviceAppDevExpertise6"><strong>API Development & Integration:</strong> Connecting your apps with third-party services or custom backend systems.</li>
+                </ul>
+
+                <h2 data-translate="serviceAppDevSub2Title">The Journey of Your App</h2>
+                <p data-translate="serviceAppDevSub2P1">
+                    We ensure a transparent and collaborative development process:
+                </p>
+                <ol>
+                    <li data-translate="serviceAppDevProcess1"><strong>Concept & Strategy:</strong> Deep dive into your app idea, target audience, and monetization strategy. (Leveraging <a href="idea-validation.html" class="text-indigo-500 dark:text-neon-cyan-DEFAULT/90 hover:underline" data-translate="serviceIdeaValidationLink">Idea Analysis</a>).</li>
+                    <li data-translate="serviceAppDevProcess2"><strong><a href="ui-ux-design.html" class="text-indigo-500 dark:text-neon-cyan-DEFAULT/90 hover:underline" data-translate="serviceUIUXLink">UI/UX Design</a>:</strong> Creating intuitive wireframes, mockups, and prototypes.</li>
+                    <li data-translate="serviceAppDevProcess3"><strong>Agile Development:</strong> Iterative development sprints with regular feedback and updates.</li>
+                    <li data-translate="serviceAppDevProcess4"><strong>Rigorous <a href="security-testing.html" class="text-indigo-500 dark:text-neon-cyan-DEFAULT/90 hover:underline" data-translate="serviceSecurityLink">Testing</a>:</strong> Comprehensive quality assurance, performance, and security testing.</li>
+                    <li data-translate="serviceAppDevProcess5"><strong>Deployment & Launch:</strong> Assisting with submission to Apple App Store and Google Play Store. (See <a href="app-deployment.html" class="text-indigo-500 dark:text-neon-cyan-DEFAULT/90 hover:underline" data-translate="serviceAppStoreLink">App Deployment Services</a>).</li>
+                    <li data-translate="serviceAppDevProcess6"><strong>Post-Launch Support:</strong> Maintenance and updates to keep your app competitive.</li>
+                </ol>
+                
+                <div class="mt-12 p-6 bg-slate-100 dark:bg-slate-800 rounded-lg border border-indigo-300 dark:border-neon-cyan-DEFAULT/50 dark:shadow-neon-cyan-soft">
+                    <h3 class="text-xl font-semibold text-indigo-700 dark:text-neon-cyan-DEFAULT mb-3" data-translate="serviceAppDevCTASectionTitle">Ready to Launch Your Dream App?</h3>
+                    <p class="text-slate-700 dark:text-slate-300 mb-4" data-translate="serviceAppDevCTASectionP1">
+                        Partner with us to develop an application that captivates users and achieves your business goals.
+                    </p>
+                    <a href="index.html#contact"
+                       class="inline-block bg-indigo-600 hover:bg-indigo-700 dark:bg-neon-cyan-DEFAULT/80 dark:hover:bg-neon-cyan-DEFAULT text-white font-semibold py-2 px-6 rounded-lg transition-transform transform hover:scale-105"
+                       data-translate="contactUs">Get in Touch</a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer id="contact" class="bg-slate-800 dark:bg-black text-slate-300 dark:text-slate-400 py-12 mt-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-orbitron font-semibold mb-3 text-white dark:neon-text-cyan" data-translate="companyName">Idea to App</h3>
+                    <p class="mb-2" data-translate="footerTagline">Turning your brilliant ideas into exceptional applications. Experienced team (3+ years).</p>
+                    <p data-translate="footerRights">&copy; <span id="currentYear"></span> Idea to App. All rights reserved.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-3 text-white" data-translate="footerQuickLinks">Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html" class="hover:text-neon-cyan-DEFAULT" data-translate="navHome">Home</a></li>
+                        <li><a href="services.html" class="hover:text-neon-cyan-DEFAULT" data-translate="navServices">Services</a></li>
+                        <li><a href="idea-validation.html" class="hover:text-neon-cyan-DEFAULT" data-translate="serviceIdeaValidationTitle">Idea Validation</a></li>
+                         <li><a href="index.html#contact" class="hover:text-neon-cyan-DEFAULT" data-translate="navContact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-3 text-white" data-translate="footerContactUs">Contact Us</h4>
+                    <p class="mb-1"><a href="mailto:contact@ideatoapp.com" class="hover:text-neon-cyan-DEFAULT">contact@ideatoapp.com</a></p>
+                    <p class="mb-3"><a href="https://wa.me/1234567890" target="_blank" class="hover:text-neon-cyan-DEFAULT" data-translate="footerWhatsApp">WhatsApp Us</a></p>
+                    <div class="flex space-x-4">
+                        <a href="#" aria-label="Facebook" class="hover:text-neon-cyan-DEFAULT transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z"/></svg></a>
+                        <a href="#" aria-label="Instagram" class="hover:text-neon-pink-DEFAULT transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0 3c-3.866 0-7 3.134-7 7s3.134 7 7 7 7-3.134 7-7-3.134-7-7-7zm0 2c2.761 0 5 2.239 5 5s-2.239 5-5 5-5-2.239-5-5 2.239-5 5-5zm5.5 0c-.828 0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5 1.5-.672 1.5-1.5-.672-1.5-1.5-1.5z"/></svg></a>
+                        <a href="#" aria-label="Twitter" class="hover:text-neon-cyan-DEFAULT transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"/></svg></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

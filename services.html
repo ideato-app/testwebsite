@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="pageTitleServices">Our Services - Idea to App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        // Same Tailwind config as index.html
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        orbitron: ['Orbitron', 'sans-serif'],
+                    },
+                    colors: {
+                        'neon-cyan': 'rgb(0 255 255 / <alpha-value>)',
+                        'neon-pink': 'rgb(255 0 255 / <alpha-value>)',
+                        'dark-bg': '#0f172a',
+                        'light-bg': '#f8fafc',
+                    },
+                    boxShadow: {
+                        'neon-cyan-soft': '0 0 8px 2px rgb(0 255 255 / 0.5)',
+                        'neon-pink-soft': '0 0 8px 2px rgb(255 0 255 / 0.5)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Same custom scrollbar and neon text styles as index.html */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #4f46e5; border-radius: 4px; }
+        .dark ::-webkit-scrollbar-thumb { background: #818cf8; }
+        .neon-text-cyan { text-shadow: 0 0 5px theme('colors.neon-cyan'), 0 0 10px theme('colors.neon-cyan'); }
+        .neon-text-pink { text-shadow: 0 0 5px theme('colors.neon-pink'), 0 0 10px theme('colors.neon-pink'); }
+         .dark .neon-glow-cyan {
+            box-shadow: 0 0 8px 2px rgb(0 255 255 / 0.6), 0 0 12px 4px rgb(0 255 255 / 0.4);
+            border-color: rgb(0 255 255 / 0.7);
+        }
+         .dark .neon-glow-pink {
+            box-shadow: 0 0 8px 2px rgb(255 0 255 / 0.6), 0 0 12px 4px rgb(255 0 255 / 0.4);
+            border-color: rgb(255 0 255 / 0.7);
+        }
+    </style>
+</head>
+<body class="bg-light-bg dark:bg-dark-bg text-slate-800 dark:text-slate-200 font-sans transition-colors duration-300">
+
+    <!-- Header (Same as index.html) -->
+    <header class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-md">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-orbitron font-bold dark:neon-text-cyan light:text-indigo-600" data-translate="companyName">Idea to App</a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="index.html" class="hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT" data-translate="navHome">Home</a>
+                <a href="services.html" class="text-indigo-600 dark:text-neon-cyan-DEFAULT font-semibold" data-translate="navServices">Services</a>
+                <a href="index.html#contact" class="hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT" data-translate="navContact">Contact</a>
+            </div>
+            <div class="flex items-center space-x-3">
+                <button id="theme-toggle" class="p-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700">
+                    <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun hidden dark:hidden"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                    <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon hidden dark:hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                </button>
+                <button id="language-toggle" class="p-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 text-sm font-semibold">EN/AR</button>
+                 <button id="mobile-menu-button" class="md:hidden p-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                </button>
+            </div>
+        </nav>
+         <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-800 p-4">
+            <a href="index.html" class="block py-2 hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT" data-translate="navHome">Home</a>
+            <a href="services.html" class="block py-2 text-indigo-600 dark:text-neon-cyan-DEFAULT font-semibold" data-translate="navServices">Services</a>
+            <a href="index.html#contact" class="block py-2 hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT" data-translate="navContact">Contact</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
+        <section class="text-center mb-12 md:mb-16">
+            <h1 class="text-4xl sm:text-5xl font-orbitron font-bold mb-4">
+                <span class="dark:neon-text-cyan light:text-indigo-700" data-translate="servicesPageTitle">Our Comprehensive Services</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto" data-translate="servicesPageSubtitle">
+                From initial idea analysis to final deployment and beyond, we offer a full suite of services to build your digital success.
+            </p>
+        </section>
+
+        <section class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Service Card: Web Development -->
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-xl hover:shadow-2xl dark:border dark:border-slate-700 dark:hover:border-neon-cyan-DEFAULT/70 dark:hover:shadow-neon-cyan-soft transition-all transform hover:-translate-y-1">
+                <div class="text-indigo-500 dark:text-neon-cyan-DEFAULT text-3xl mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code-xml"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+                </div>
+                <h3 class="text-2xl font-semibold mb-3 text-indigo-700 dark:text-neon-cyan-DEFAULT" data-translate="serviceWebDevTitle">Web Development</h3>
+                <p class="text-slate-600 dark:text-slate-400 mb-4" data-translate="serviceWebDevShortDesc">Crafting responsive, high-performance websites tailored to your business needs.</p>
+                <a href="web-development.html" class="font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT/90 hover:underline" data-translate="learnMore">Learn More &rarr;</a>
+            </div>
+
+            <!-- Service Card: Personal Website Development -->
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-xl hover:shadow-2xl dark:border dark:border-slate-700 dark:hover:border-neon-pink-DEFAULT/70 dark:hover:shadow-neon-pink-soft transition-all transform hover:-translate-y-1">
+                <div class="text-purple-500 dark:text-neon-pink-DEFAULT text-3xl mb-4">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-square-2"><path d="M18 21a6 6 0 0 0-12 0"/><circle cx="12" cy="11" r="4"/><rect width="18" height="18" x="3" y="3" rx="2"/></svg>
+                </div>
+                <h3 class="text-2xl font-semibold mb-3 text-purple-700 dark:text-neon-pink-DEFAULT" data-translate="servicePersonalWebTitle">Personal Website Development</h3>
+                <p class="text-slate-600 dark:text-slate-400 mb-4" data-translate="servicePersonalWebShortDesc">Showcase your brand or portfolio with a stunning, custom-designed personal website.</p>
+                <a href="personal-website.html" class="font-semibold text-purple-600 dark:text-neon-pink-DEFAULT/90 hover:underline" data-translate="learnMore">Learn More &rarr;</a>
+            </div>
+            
+            <!-- Service Card: App Development -->
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-xl hover:shadow-2xl dark:border dark:border-slate-700 dark:hover:border-neon-cyan-DEFAULT/70 dark:hover:shadow-neon-cyan-soft transition-all transform hover:-translate-y-1">
+                <div class="text-indigo-500 dark:text-neon-cyan-DEFAULT text-3xl mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-smartphone"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+                </div>
+                <h3 class="text-2xl font-semibold mb-3 text-indigo-700 dark:text-neon-cyan-DEFAULT" data-translate="serviceAppDevTitle">App Development</h3>
+                <p class="text-slate-600 dark:text-slate-400 mb-4" data-translate="serviceAppDevShortDesc">Building native and cross-platform mobile apps for iOS, Android, macOS, and Windows.</p>
+                <a href="app-development.html" class="font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT/90 hover:underline" data-translate="learnMore">Learn More &rarr;</a>
+            </div>
+
+            <!-- Service Card: AI Services -->
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-xl hover:shadow-2xl dark:border dark:border-slate-700 dark:hover:border-neon-pink-DEFAULT/70 dark:hover:shadow-neon-pink-soft transition-all transform hover:-translate-y-1">
+                <div class="text-purple-500 dark:text-neon-pink-DEFAULT text-3xl mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brain-circuit"><path d="M12 2a9.5 9.5 0 0 0-4.64 1.14a1 1 0 0 0-.44 1.31L8.1 8.4a1 1 0 0 0 1.3.42A5.49 5.49 0 0 1 12 8a5.49 5.49 0 0 1 2.6 1.82a1 1 0 0 0 1.3-.42l1.18-3.95a1 1 0 0 0-.44-1.3A9.5 9.5 0 0 0 12 2Z"/><path d="M12 13a3.5 3.5 0 0 0-3.5 3.5v2a3.5 3.5 0 0 0 7 0v-2A3.5 3.5 0 0 0 12 13Z"/><path d="M2.5 9.5A2.5 2.5 0 0 0 0 12a2.5 2.5 0 0 0 2.5 2.5V9.5Z"/><path d="M4.5 16.5A2.5 2.5 0 0 0 2 19a2.5 2.5 0 0 0 2.5 2.5V16.5Z"/><path d="M21.5 9.5V12a2.5 2.5 0 0 1 2.5-2.5A2.5 2.5 0 0 1 21.5 7Z"/><path d="M19.5 16.5V19a2.5 2.5 0 0 1 2.5-2.5A2.5 2.5 0 0 1 19.5 14Z"/></svg>
+                </div>
+                <h3 class="text-2xl font-semibold mb-3 text-purple-700 dark:text-neon-pink-DEFAULT" data-translate="serviceAIServicesTitle">AI Services</h3>
+                <p class="text-slate-600 dark:text-slate-400 mb-4" data-translate="serviceAIServicesShortDesc">AI integration, automation services, and custom AI solutions to empower your business.</p>
+                <a href="ai-services.html" class="font-semibold text-purple-600 dark:text-neon-pink-DEFAULT/90 hover:underline" data-translate="learnMore">Learn More &rarr;</a>
+            </div>
+
+            <!-- Service Card: App Deployment & Hosting -->
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-xl hover:shadow-2xl dark:border dark:border-slate-700 dark:hover:border-neon-cyan-DEFAULT/70 dark:hover:shadow-neon-cyan-soft transition-all transform hover:-translate-y-1">
+                <div class="text-indigo-500 dark:text-neon-cyan-DEFAULT text-3xl mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-upload-cloud"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M12 12v9"/><path d="m16 16-4-4-4 4"/></svg>
+                </div>
+                <h3 class="text-2xl font-semibold mb-3 text-indigo-700 dark:text-neon-cyan-DEFAULT" data-translate="serviceAppDeployTitle">App Deployment & Hosting</h3>
+                <p class="text-slate-600 dark:text-slate-400 mb-4" data-translate="serviceAppDeployShortDesc">Seamless app deployment to Play Store, Apple Store, and reliable website hosting.</p>
+                <a href="app-deployment.html" class="font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT/90 hover:underline" data-translate="learnMore">Learn More &rarr;</a>
+            </div>
+
+            <!-- Service Card: UI/UX Design -->
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-xl hover:shadow-2xl dark:border dark:border-slate-700 dark:hover:border-neon-pink-DEFAULT/70 dark:hover:shadow-neon-pink-soft transition-all transform hover:-translate-y-1">
+                <div class="text-purple-500 dark:text-neon-pink-DEFAULT text-3xl mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-figma"><path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"/><path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"/><path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"/><path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"/><path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"/></svg>
+                </div>
+                <h3 class="text-2xl font-semibold mb-3 text-purple-700 dark:text-neon-pink-DEFAULT" data-translate="serviceUIUXTitle">UI/UX Design</h3>
+                <p class="text-slate-600 dark:text-slate-400 mb-4" data-translate="serviceUIUXShortDesc">Creating intuitive and engaging user interfaces for optimal user experience.</p>
+                <a href="ui-ux-design.html" class="font-semibold text-purple-600 dark:text-neon-pink-DEFAULT/90 hover:underline" data-translate="learnMore">Learn More &rarr;</a>
+            </div>
+
+            <!-- Service Card: Security Testing -->
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-xl hover:shadow-2xl dark:border dark:border-slate-700 dark:hover:border-neon-cyan-DEFAULT/70 dark:hover:shadow-neon-cyan-soft transition-all transform hover:-translate-y-1">
+                <div class="text-indigo-500 dark:text-neon-cyan-DEFAULT text-3xl mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-alert"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+                </div>
+                <h3 class="text-2xl font-semibold mb-3 text-indigo-700 dark:text-neon-cyan-DEFAULT" data-translate="serviceSecurityTitle">Security Testing</h3>
+                <p class="text-slate-600 dark:text-slate-400 mb-4" data-translate="serviceSecurityShortDesc">Comprehensive security assessments to protect your applications and data.</p>
+                <a href="security-testing.html" class="font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT/90 hover:underline" data-translate="learnMore">Learn More &rarr;</a>
+            </div>
+
+            <!-- Service Card: Idea Analysis & Validation -->
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-xl hover:shadow-2xl dark:border dark:border-slate-700 dark:hover:border-neon-pink-DEFAULT/70 dark:hover:shadow-neon-pink-soft transition-all transform hover:-translate-y-1">
+                <div class="text-purple-500 dark:text-neon-pink-DEFAULT text-3xl mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-check"><path d="M8 18A6 6 0 0 0 2 12a6 6 0 0 0 6-6h0"/><path d="m22 22-4.35-4.35"/><path d="M20 12H8"/><path d="m15 17 5-5-5-5"/></svg>
+                </div>
+                <h3 class="text-2xl font-semibold mb-3 text-purple-700 dark:text-neon-pink-DEFAULT" data-translate="serviceIdeaValidationTitle">Idea Analysis & Validation</h3>
+                <p class="text-slate-600 dark:text-slate-400 mb-4" data-translate="serviceIdeaValidationShortDesc">Thorough analysis and validation of your concepts to ensure market viability and success.</p>
+                <a href="idea-validation.html" class="font-semibold text-purple-600 dark:text-neon-pink-DEFAULT/90 hover:underline" data-translate="learnMore">Learn More &rarr;</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (Same as index.html) -->
+    <footer id="contact" class="bg-slate-800 dark:bg-black text-slate-300 dark:text-slate-400 py-12 mt-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-orbitron font-semibold mb-3 text-white dark:neon-text-cyan" data-translate="companyName">Idea to App</h3>
+                    <p class="mb-2" data-translate="footerTagline">Turning your brilliant ideas into exceptional applications. Experienced team (3+ years).</p>
+                    <p data-translate="footerRights">&copy; <span id="currentYear"></span> Idea to App. All rights reserved.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-3 text-white" data-translate="footerQuickLinks">Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html" class="hover:text-neon-cyan-DEFAULT" data-translate="navHome">Home</a></li>
+                        <li><a href="services.html" class="hover:text-neon-cyan-DEFAULT" data-translate="navServices">Services</a></li>
+                        <li><a href="idea-validation.html" class="hover:text-neon-cyan-DEFAULT" data-translate="serviceIdeaValidationTitle">Idea Validation</a></li>
+                         <li><a href="index.html#contact" class="hover:text-neon-cyan-DEFAULT" data-translate="navContact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-3 text-white" data-translate="footerContactUs">Contact Us</h4>
+                    <p class="mb-1"><a href="mailto:contact@ideatoapp.com" class="hover:text-neon-cyan-DEFAULT">contact@ideatoapp.com</a></p>
+                    <p class="mb-3"><a href="https://wa.me/1234567890" target="_blank" class="hover:text-neon-cyan-DEFAULT" data-translate="footerWhatsApp">WhatsApp Us</a></p>
+                    <div class="flex space-x-4">
+                        <a href="#" aria-label="Facebook" class="hover:text-neon-cyan-DEFAULT transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Instagram" class="hover:text-neon-pink-DEFAULT transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0 3c-3.866 0-7 3.134-7 7s3.134 7 7 7 7-3.134 7-7-3.134-7-7-7zm0 2c2.761 0 5 2.239 5 5s-2.239 5-5 5-5-2.239-5-5 2.239-5 5-5zm5.5 0c-.828 0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5 1.5-.672 1.5-1.5-.672-1.5-1.5-1.5z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Twitter" class="hover:text-neon-cyan-DEFAULT transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

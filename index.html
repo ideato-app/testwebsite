@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="companyName">Idea to App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide-react@latest/dist/lucide-react.js"></script> <!-- Using lucide-react for icons, but will call them via JS -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // or 'media'
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        orbitron: ['Orbitron', 'sans-serif'],
+                    },
+                    colors: {
+                        'neon-cyan': 'rgb(0 255 255 / <alpha-value>)',
+                        'neon-pink': 'rgb(255 0 255 / <alpha-value>)',
+                        'dark-bg': '#0f172a', // slate-900
+                        'light-bg': '#f8fafc', // slate-50
+                    },
+                    boxShadow: {
+                        'neon-cyan': '0 0 5px theme(colors.neon-cyan.DEFAULT), 0 0 10px theme(colors.neon-cyan.DEFAULT), 0 0 15px theme(colors.neon-cyan.DEFAULT)',
+                        'neon-pink': '0 0 5px theme(colors.neon-pink.DEFAULT), 0 0 10px theme(colors.neon-pink.DEFAULT), 0 0 15px theme(colors.neon-pink.DEFAULT)',
+                        'neon-cyan-soft': '0 0 8px 2px rgb(0 255 255 / 0.5)',
+                        'neon-pink-soft': '0 0 8px 2px rgb(255 0 255 / 0.5)',
+                    },
+                    animation: {
+                        'pulse-neon-cyan': 'pulse-neon-cyan 2s infinite',
+                        'pulse-neon-pink': 'pulse-neon-pink 2s infinite',
+                    },
+                    keyframes: {
+                        'pulse-neon-cyan': {
+                            '0%, 100%': { boxShadow: '0 0 5px #0ff, 0 0 10px #0ff' },
+                            '50%': { boxShadow: '0 0 10px #0ff, 0 0 20px #0ff' },
+                        },
+                        'pulse-neon-pink': {
+                            '0%, 100%': { boxShadow: '0 0 5px #f0f, 0 0 10px #f0f' },
+                            '50%': { boxShadow: '0 0 10px #f0f, 0 0 20px #f0f' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for a more modern look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4f46e5; /* Indigo-500 */
+            border-radius: 4px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #818cf8; /* Indigo-300 */
+        }
+        .neon-text-cyan {
+            text-shadow: 0 0 5px theme('colors.neon-cyan'), 0 0 10px theme('colors.neon-cyan');
+        }
+        .neon-text-pink {
+            text-shadow: 0 0 5px theme('colors.neon-pink'), 0 0 10px theme('colors.neon-pink');
+        }
+        .dark .neon-glow-cyan {
+            box-shadow: 0 0 8px 2px rgb(0 255 255 / 0.6), 0 0 12px 4px rgb(0 255 255 / 0.4);
+            border-color: rgb(0 255 255 / 0.7);
+        }
+         .dark .neon-glow-pink {
+            box-shadow: 0 0 8px 2px rgb(255 0 255 / 0.6), 0 0 12px 4px rgb(255 0 255 / 0.4);
+            border-color: rgb(255 0 255 / 0.7);
+        }
+    </style>
+</head>
+<body class="bg-light-bg dark:bg-dark-bg text-slate-800 dark:text-slate-200 font-sans transition-colors duration-300">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-md">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-orbitron font-bold dark:neon-text-cyan light:text-indigo-600" data-translate="companyName">Idea2App</a>
+            <div class="hidden md:flex space-x-6 space-x-reverse items-center">
+                <a href="index.html" class="hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT" data-translate="navHome">Home</a>
+                <a href="services.html" class="hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT" data-translate="navServices">Services</a>
+                <a href="#contact" class="hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT" data-translate="navContact">Contact</a>
+            </div>
+            <div class="flex items-center space-x-3">
+                <button id="theme-toggle" class="p-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-neon-cyan" aria-label="Toggle theme">
+                    <!-- Sun icon for light mode -->
+                    <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun text-slate-700 dark:text-slate-200"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                    <!-- Moon icon for dark mode -->
+                    <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon text-slate-700 dark:text-slate-200"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                </button>
+                <button id="language-toggle" class="p-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 text-sm font-semibold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-neon-cyan">EN/AR</button>
+                 <button id="mobile-menu-button" class="md:hidden p-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-neon-cyan">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-800 p-4">
+            <a href="index.html" class="block py-2 hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT" data-translate="navHome">Home</a>
+            <a href="services.html" class="block py-2 hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT" data-translate="navServices">Services</a>
+            <a href="#contact" class="block py-2 hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT" data-translate="navContact">Contact</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
+        <!-- Hero Section -->
+        <section class="text-center py-16 md:py-24">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-orbitron font-bold mb-6">
+                <span class="dark:neon-text-cyan light:text-indigo-700" data-translate="homeHeroTitle1">Idea to App:</span>
+                <span class="block sm:inline dark:neon-text-pink light:text-purple-700" data-translate="homeHeroTitle2">We Bring Your Visions to Life</span>
+            </h1>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto text-slate-600 dark:text-slate-300" data-translate="homeHeroSubtitle">
+                Transforming innovative ideas into powerful software solutions. From web and mobile apps to AI integration, our experienced team (3+ years of expertise!) is ready to build your next big thing.
+            </p>
+            <a href="services.html"
+               class="inline-block bg-indigo-600 hover:bg-indigo-700 dark:bg-neon-cyan-DEFAULT/80 dark:hover:bg-neon-cyan-DEFAULT text-white font-semibold py-3 px-8 rounded-lg text-lg transition-transform transform hover:scale-105 dark:shadow-neon-cyan-soft dark:hover:shadow-neon-cyan"
+               data-translate="homeExploreServices">Explore Our Services</a>
+        </section>
+
+        <!-- About Us Snippet -->
+        <section class="py-12 md:py-20 bg-slate-100 dark:bg-slate-800 rounded-xl">
+            <div class="container mx-auto px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-4" data-translate="homeAboutTitle">Why Choose Idea to App?</h2>
+                <p class="text-center text-lg text-slate-600 dark:text-slate-300 mb-10 max-w-3xl mx-auto" data-translate="homeAboutIntro">
+                    We are a passionate team of developers, designers, and strategists with over 3 years of experience dedicated to turning your concepts into reality. We believe in innovation, quality, and collaborative partnerships.
+                </p>
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div class="p-6 border border-slate-300 dark:border-slate-700 rounded-lg dark:hover:border-neon-cyan-DEFAULT/70 dark:hover:shadow-neon-cyan-soft transition-all">
+                        <div class="text-indigo-500 dark:text-neon-cyan-DEFAULT text-4xl mb-4 inline-block">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lightbulb"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2" data-translate="homeFeature1Title">Innovative Solutions</h3>
+                        <p class="text-slate-600 dark:text-slate-400" data-translate="homeFeature1Desc">Cutting-edge technology for impactful results, including AI integration and automation.</p>
+                    </div>
+                    <div class="p-6 border border-slate-300 dark:border-slate-700 rounded-lg dark:hover:border-neon-pink-DEFAULT/70 dark:hover:shadow-neon-pink-soft transition-all">
+                         <div class="text-purple-500 dark:text-neon-pink-DEFAULT text-4xl mb-4 inline-block">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2" data-translate="homeFeature2Title">Quality Focused</h3>
+                        <p class="text-slate-600 dark:text-slate-400" data-translate="homeFeature2Desc">Rigorous testing and development processes ensure robust and reliable applications.</p>
+                    </div>
+                    <div class="p-6 border border-slate-300 dark:border-slate-700 rounded-lg dark:hover:border-neon-cyan-DEFAULT/70 dark:hover:shadow-neon-cyan-soft transition-all">
+                        <div class="text-indigo-500 dark:text-neon-cyan-DEFAULT text-4xl mb-4 inline-block">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2" data-translate="homeFeature3Title">Client-Centric</h3>
+                        <p class="text-slate-600 dark:text-slate-400" data-translate="homeFeature3Desc">Your vision is our priority. We collaborate closely from idea validation to deployment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Services -->
+        <section class="py-12 md:py-20">
+            <h2 class="text-3xl font-bold text-center mb-10" data-translate="homeServicesTitle">Our Core Services</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card Example -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-lg hover:shadow-xl dark:border dark:border-slate-700 dark:hover:border-neon-cyan-DEFAULT/50 dark:hover:shadow-neon-cyan-soft transition-all">
+                    <h3 class="text-xl font-semibold mb-2 text-indigo-600 dark:text-neon-cyan-DEFAULT" data-translate="serviceWebDevTitle">Web Development</h3>
+                    <p class="text-slate-600 dark:text-slate-400 mb-4" data-translate="serviceWebDevShortDesc">Crafting responsive, high-performance websites tailored to your business needs.</p>
+                    <a href="web-development.html" class="text-indigo-500 dark:text-neon-cyan-DEFAULT/90 hover:underline font-semibold" data-translate="learnMore">Learn More &rarr;</a>
+                </div>
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-lg hover:shadow-xl dark:border dark:border-slate-700 dark:hover:border-neon-pink-DEFAULT/50 dark:hover:shadow-neon-pink-soft transition-all">
+                    <h3 class="text-xl font-semibold mb-2 text-purple-600 dark:text-neon-pink-DEFAULT" data-translate="serviceAppDevTitle">App Development</h3>
+                    <p class="text-slate-600 dark:text-slate-400 mb-4" data-translate="serviceAppDevShortDesc">Building native and cross-platform mobile apps for iOS, Android, macOS, and Windows.</p>
+                    <a href="app-development.html" class="text-purple-500 dark:text-neon-pink-DEFAULT/90 hover:underline font-semibold" data-translate="learnMore">Learn More &rarr;</a>
+                </div>
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-lg hover:shadow-xl dark:border dark:border-slate-700 dark:hover:border-neon-cyan-DEFAULT/50 dark:hover:shadow-neon-cyan-soft transition-all">
+                    <h3 class="text-xl font-semibold mb-2 text-indigo-600 dark:text-neon-cyan-DEFAULT" data-translate="serviceAIServicesTitle">AI Services</h3>
+                    <p class="text-slate-600 dark:text-slate-400 mb-4" data-translate="serviceAIServicesShortDesc">Integrating AI for automation, insights, and intelligent application features.</p>
+                    <a href="ai-services.html" class="text-indigo-500 dark:text-neon-cyan-DEFAULT/90 hover:underline font-semibold" data-translate="learnMore">Learn More &rarr;</a>
+                </div>
+                 <!-- Add more featured services or a link to the main services page -->
+            </div>
+            <div class="text-center mt-12">
+                <a href="services.html"
+                   class="inline-block bg-purple-600 hover:bg-purple-700 dark:bg-neon-pink-DEFAULT/80 dark:hover:bg-neon-pink-DEFAULT text-white font-semibold py-3 px-8 rounded-lg text-lg transition-transform transform hover:scale-105 dark:shadow-neon-pink-soft dark:hover:shadow-neon-pink"
+                   data-translate="homeViewAllServices">View All Services</a>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="py-16 bg-slate-100 dark:bg-slate-800 rounded-xl mt-16">
+            <div class="container mx-auto px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-4" data-translate="contactTitle">Get in Touch</h2>
+                <p class="text-center text-lg text-slate-600 dark:text-slate-300 mb-12 max-w-2xl mx-auto" data-translate="contactSubtitle">
+                    Have a project in mind? We'd love to hear from you. Choose your preferred way to connect with us.
+                </p>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/1234567890" target="_blank" 
+                       class="flex flex-col items-center p-6 bg-white dark:bg-slate-700 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105 dark:hover:border-neon-cyan-DEFAULT/50 dark:hover:shadow-neon-cyan-soft">
+                        <div class="text-green-500 dark:text-green-400 text-4xl mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.289.13.332.202.043.072.043.419-.101.824z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2" data-translate="contactWhatsApp">WhatsApp</h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm" data-translate="contactWhatsAppDesc">Chat with us directly</p>
+                    </a>
+
+                    <!-- Messenger -->
+                    <a href="https://m.me/your-page" target="_blank" 
+                       class="flex flex-col items-center p-6 bg-white dark:bg-slate-700 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105 dark:hover:border-neon-pink-DEFAULT/50 dark:hover:shadow-neon-pink-soft">
+                        <div class="text-blue-500 dark:text-blue-400 text-4xl mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.627 0-12 4.975-12 11.111 0 3.497 1.745 6.616 4.472 8.652v4.237l4.086-2.242c1.09.301 2.246.464 3.442.464 6.627 0 12-4.974 12-11.111 0-6.136-5.373-11.111-12-11.111zm1.193 14.963l-3.056-3.259-5.963 3.259 6.559-6.963 3.13 3.259 5.889-3.259-6.559 6.963z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2" data-translate="contactMessenger">Messenger</h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm" data-translate="contactMessengerDesc">Message us on Facebook</p>
+                    </a>
+
+                    <!-- Instagram -->
+                    <a href="https://instagram.com/your-handle" target="_blank" 
+                       class="flex flex-col items-center p-6 bg-white dark:bg-slate-700 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105 dark:hover:border-neon-pink-DEFAULT/50 dark:hover:shadow-neon-pink-soft">
+                        <div class="text-pink-500 dark:text-pink-400 text-4xl mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2" data-translate="contactInstagram">Instagram</h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm" data-translate="contactInstagramDesc">Follow us on Instagram</p>
+                    </a>
+
+                    <!-- Email -->
+                    <a href="mailto:contact@ideatoapp.com" 
+                       class="flex flex-col items-center p-6 bg-white dark:bg-slate-700 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105 dark:hover:border-neon-cyan-DEFAULT/50 dark:hover:shadow-neon-cyan-soft">
+                        <div class="text-indigo-500 dark:text-indigo-400 text-4xl mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2" data-translate="contactEmail">Email</h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm" data-translate="contactEmailDesc">Send us an email</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-slate-800 dark:bg-black text-slate-300 dark:text-slate-400 py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-orbitron font-semibold mb-3 text-white dark:neon-text-cyan" data-translate="companyName">Idea to App</h3>
+                    <p class="mb-2" data-translate="footerTagline">Turning your brilliant ideas into exceptional applications. Experienced team (3+ years).</p>
+                    <p data-translate="footerRights">&copy; <span id="currentYear"></span> Idea to App. All rights reserved.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-3 text-white" data-translate="footerQuickLinks">Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html" class="hover:text-neon-cyan-DEFAULT" data-translate="navHome">Home</a></li>
+                        <li><a href="services.html" class="hover:text-neon-cyan-DEFAULT" data-translate="navServices">Services</a></li>
+                        <li><a href="idea-validation.html" class="hover:text-neon-cyan-DEFAULT" data-translate="serviceIdeaValidationTitle">Idea Validation</a></li>
+                         <li><a href="#contact" class="hover:text-neon-cyan-DEFAULT" data-translate="navContact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-3 text-white" data-translate="footerContactUs">Contact Us</h4>
+                    <p class="mb-1"><a href="mailto:contact@ideatoapp.com" class="hover:text-neon-cyan-DEFAULT">contact@ideatoapp.com</a></p>
+                    <p class="mb-3"><a href="https://wa.me/1234567890" target="_blank" class="hover:text-neon-cyan-DEFAULT" data-translate="footerWhatsApp">WhatsApp Us</a></p>
+                    <div class="flex space-x-4">
+                        <a href="#" aria-label="Facebook" class="hover:text-neon-cyan-DEFAULT transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Instagram" class="hover:text-neon-pink-DEFAULT transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0 3c-3.866 0-7 3.134-7 7s3.134 7 7 7 7-3.134 7-7-3.134-7-7-7zm0 2c2.761 0 5 2.239 5 5s-2.239 5-5 5-5-2.239-5-5 2.239-5 5-5zm5.5 0c-.828 0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5 1.5-.672 1.5-1.5-.672-1.5-1.5-1.5z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Twitter" class="hover:text-neon-cyan-DEFAULT transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
