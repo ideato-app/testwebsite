@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-translate="pageTitleAIServices">AI Services - Idea to App</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="app.js" defer></script>
     <script>
         tailwind.config = { /* ... Same Tailwind config ... */
             darkMode: 'class',
@@ -45,9 +46,23 @@
             box-shadow: 0 0 8px 2px rgb(255 0 255 / 0.6), 0 0 12px 4px rgb(255 0 255 / 0.4);
             border-color: rgb(255 0 255 / 0.7);
         }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        .animate-slide-up {
+            animation: slideUp 0.6s ease-out forwards;
+        }
     </style>
 </head>
-<body class="bg-light-bg dark:bg-dark-bg text-slate-800 dark:text-slate-200 font-sans transition-colors duration-300">
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-sans transition-colors duration-300">
 
     <header class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-md">
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
@@ -76,49 +91,168 @@
     </header>
 
     <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
-        <div class="max-w-3xl mx-auto">
-            <div class="text-center mb-12">
-                <span class="text-sm font-semibold text-purple-600 dark:text-neon-pink-DEFAULT uppercase tracking-wider" data-translate="serviceLabel">Our Services</span>
-                <h1 class="mt-2 text-4xl sm:text-5xl font-orbitron font-bold">
-                    <span class="dark:neon-text-pink light:text-purple-700" data-translate="serviceAIServicesTitle">AI Services</span>
+        <div class="max-w-4xl mx-auto">
+            <!-- Hero Section with Enhanced Typography -->
+            <div class="text-center mb-16 relative">
+                <div class="absolute -top-20 -left-20 w-40 h-40 bg-neon-cyan-DEFAULT/10 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-20 -right-20 w-40 h-40 bg-neon-pink-DEFAULT/10 rounded-full blur-3xl"></div>
+                <span class="text-sm font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT uppercase tracking-wider animate-fade-in" data-translate="serviceLabel">Our Services</span>
+                <h1 class="mt-2 text-5xl sm:text-6xl font-orbitron font-bold animate-slide-up">
+                    <span class="dark:neon-text-cyan light:text-indigo-700" data-translate="serviceAITitle">AI Services</span>
                 </h1>
-                <p class="mt-4 text-lg md:text-xl text-slate-600 dark:text-slate-300" data-translate="serviceAITagline">
-                    Unlock the power of Artificial Intelligence for automation, insights, and intelligent application features.
+                <p class="mt-6 text-xl md:text-2xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto animate-fade-in" data-translate="serviceAITagline">
+                    Harness the power of artificial intelligence to transform your business and create innovative solutions.
                 </p>
             </div>
 
+            <!-- Main Content with Enhanced Styling -->
             <article class="prose prose-lg dark:prose-invert max-w-none mx-auto">
-                <p data-translate="serviceAIP1">
-                    At Idea to App, our team of AI specialists (with 3+ years of experience) helps businesses harness the transformative power of Artificial Intelligence and Machine Learning. We provide end-to-end AI solutions, from <a href="idea-validation.html" class="text-purple-500 dark:text-neon-pink-DEFAULT/90 hover:underline" data-translate="serviceIdeaValidationLink">Idea Analysis & Validation</a> of AI use-cases to development and integration of intelligent systems.
-                </p>
+                <!-- Introduction Section -->
+                <div class="bg-white dark:bg-slate-800/50 rounded-2xl p-8 shadow-xl dark:shadow-neon-cyan-soft/20 mb-12 animate-fade-in">
+                    <p class="text-lg leading-relaxed" data-translate="serviceAIP1">
+                        At Idea to App, we leverage cutting-edge AI technologies to help businesses automate processes, gain insights from data, and create intelligent applications. Our team of AI experts combines technical expertise with business acumen to deliver solutions that drive real value.
+                    </p>
+                </div>
 
-                <h2 data-translate="serviceAISub1Title">Our AI Integration & Automation Services</h2>
-                <ul>
-                    <li data-translate="serviceAIOffer1"><strong>AI-Powered Automation:</strong> Automating repetitive tasks and streamlining workflows using AI and RPA (Robotic Process Automation).</li>
-                    <li data-translate="serviceAIOffer2"><strong>Machine Learning Solutions:</strong> Developing custom ML models for predictive analytics, pattern recognition, and data-driven decision-making.</li>
-                    <li data-translate="serviceAIOffer3"><strong>Natural Language Processing (NLP):</strong> Building solutions for chatbots, sentiment analysis, text summarization, and language understanding.</li>
-                    <li data-translate="serviceAIOffer4"><strong>Computer Vision:</strong> Implementing systems for image recognition, object detection, and video analysis.</li>
-                    <li data-translate="serviceAIOffer5"><strong>AI Chatbot Development:</strong> Creating intelligent chatbots for customer service, lead generation, and internal support.</li>
-                    <li data-translate="serviceAIOffer6"><strong>Data Analytics & Insights:</strong> Leveraging AI to extract valuable insights from your data, helping you make smarter business choices.</li>
+                <!-- Process Section with Icons -->
+                <div class="mb-16">
+                    <h2 class="text-3xl font-bold mb-8 flex items-center gap-3 animate-slide-up">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500 dark:text-neon-cyan-DEFAULT"><path d="M12 2v4"/><path d="M12 18v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="m16.24 16.24 2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="m16.24 7.76 2.83-2.83"/></svg>
+                        <span data-translate="serviceAISub1Title">Our AI Development Process</span>
+                    </h2>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-slide-up">
+                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-neon-cyan-DEFAULT">Data Analysis</h3>
+                            <p class="text-slate-600 dark:text-slate-300">Understanding your data and identifying AI opportunities.</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-slide-up">
+                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-neon-cyan-DEFAULT">Model Development</h3>
+                            <p class="text-slate-600 dark:text-slate-300">Building and training custom AI models for your needs.</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-slide-up">
+                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-neon-cyan-DEFAULT">Integration</h3>
+                            <p class="text-slate-600 dark:text-slate-300">Seamlessly integrating AI into your existing systems.</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-slide-up">
+                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-neon-cyan-DEFAULT">Monitoring</h3>
+                            <p class="text-slate-600 dark:text-slate-300">Continuous monitoring and optimization of AI systems.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features Section -->
+                <div class="mb-16">
+                    <h2 class="text-3xl font-bold mb-8 flex items-center gap-3 animate-slide-up">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500 dark:text-neon-cyan-DEFAULT"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+                        <span>AI Solutions</span>
+                    </h2>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-4 text-center shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-fade-in">
+                            <h3 class="font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">Machine Learning</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">Predictive analytics</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-4 text-center shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-fade-in">
+                            <h3 class="font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">NLP</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">Text analysis</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-4 text-center shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-fade-in">
+                            <h3 class="font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">Computer Vision</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">Image processing</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-4 text-center shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-fade-in">
+                            <h3 class="font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">Deep Learning</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">Neural networks</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pricing Section -->
+                <div class="mb-16">
+                    <h2 class="text-3xl font-bold mb-8 text-center animate-slide-up">Choose Your Plan</h2>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Basic Plan -->
+                        <div class="bg-white dark:bg-slate-800/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl dark:hover:shadow-neon-cyan-soft/20 transition-all transform hover:-translate-y-1 animate-fade-in">
+                            <div class="text-center mb-6">
+                                <h3 class="text-2xl font-bold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">Basic</h3>
+                                <p class="text-4xl font-bold mb-4">$1,999<span class="text-lg text-slate-500">/project</span></p>
+                                <p class="text-slate-600 dark:text-slate-300">For small businesses</p>
+                            </div>
+                            <ul class="space-y-4 mb-8">
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Basic AI Integration</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Data Analysis</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Email Support</span>
+                                </li>
+                            </ul>
+                            <a href="index.html#contact" class="block text-center bg-indigo-600 hover:bg-indigo-700 dark:bg-neon-cyan-DEFAULT/80 dark:hover:bg-neon-cyan-DEFAULT text-white font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-105">Get Started</a>
+                        </div>
+
+                        <!-- Professional Plan -->
+                        <div class="bg-white dark:bg-slate-800/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl dark:hover:shadow-neon-cyan-soft/20 transition-all transform hover:-translate-y-1 animate-fade-in">
+                            <div class="text-center mb-6">
+                                <h3 class="text-2xl font-bold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">Professional</h3>
+                                <p class="text-4xl font-bold mb-4">$3,999<span class="text-lg text-slate-500">/project</span></p>
+                                <p class="text-slate-600 dark:text-slate-300">For growing businesses</p>
+                            </div>
+                            <ul class="space-y-4 mb-8">
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Custom AI Models</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Advanced Analytics</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Priority Support</span>
+                                </li>
                 </ul>
+                            <a href="index.html#contact" class="block text-center bg-indigo-600 hover:bg-indigo-700 dark:bg-neon-cyan-DEFAULT/80 dark:hover:bg-neon-cyan-DEFAULT text-white font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-105">Get Started</a>
+                        </div>
 
-                <h2 data-translate="serviceAISub2Title">How We Implement AI Solutions</h2>
-                <ol>
-                    <li data-translate="serviceAIProcess1"><strong>Use Case Identification & Validation:</strong> Working with you to identify impactful AI opportunities within your business (incorporating <a href="idea-validation.html" class="text-purple-500 dark:text-neon-pink-DEFAULT/90 hover:underline" data-translate="serviceIdeaValidationLink">Idea Validation</a> principles).</li>
-                    <li data-translate="serviceAIProcess2"><strong>Data Collection & Preparation:</strong> Gathering, cleaning, and preparing data for AI model training.</li>
-                    <li data-translate="serviceAIProcess3"><strong>Model Development & Training:</strong> Building and training custom AI/ML models tailored to your specific needs.</li>
-                    <li data-translate="serviceAIProcess4"><strong>Integration & Deployment:</strong> Seamlessly integrating AI solutions into your existing systems and workflows. (See our <a href="app-deployment.html" class="text-purple-500 dark:text-neon-pink-DEFAULT/90 hover:underline" data-translate="serviceAppDeployTitle">Deployment Services</a>).</li>
-                    <li data-translate="serviceAIProcess5"><strong>Monitoring & Optimization:</strong> Continuously monitoring AI model performance and optimizing for better results. Rigorous <a href="security-testing.html" class="text-purple-500 dark:text-neon-pink-DEFAULT/90 hover:underline" data-translate="serviceSecurityLink">Security Testing</a> is applied.</li>
-                </ol>
-                
-                <div class="mt-12 p-6 bg-slate-100 dark:bg-slate-800 rounded-lg border border-purple-300 dark:border-neon-pink-DEFAULT/50 dark:shadow-neon-pink-soft">
-                    <h3 class="text-xl font-semibold text-purple-700 dark:text-neon-pink-DEFAULT mb-3" data-translate="serviceAICTASectionTitle">Ready to Infuse Intelligence into Your Business?</h3>
-                    <p class="text-slate-700 dark:text-slate-300 mb-4" data-translate="serviceAICTASectionP1">
-                        Discover how our AI services can revolutionize your operations and create new value.
+                        <!-- Enterprise Plan -->
+                        <div class="bg-white dark:bg-slate-800/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl dark:hover:shadow-neon-cyan-soft/20 transition-all transform hover:-translate-y-1 animate-fade-in">
+                            <div class="text-center mb-6">
+                                <h3 class="text-2xl font-bold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">Enterprise</h3>
+                                <p class="text-4xl font-bold mb-4">Custom<span class="text-lg text-slate-500">/project</span></p>
+                                <p class="text-slate-600 dark:text-slate-300">For large organizations</p>
+                            </div>
+                            <ul class="space-y-4 mb-8">
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Custom Solutions</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Dedicated Team</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>24/7 Support</span>
+                                </li>
+                            </ul>
+                            <a href="index.html#contact" class="block text-center bg-indigo-600 hover:bg-indigo-700 dark:bg-neon-cyan-DEFAULT/80 dark:hover:bg-neon-cyan-DEFAULT text-white font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-105">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enhanced CTA Section -->
+                <div class="mt-16 p-8 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-neon-cyan-DEFAULT/80 dark:to-neon-pink-DEFAULT/80 rounded-2xl shadow-xl dark:shadow-neon-cyan-soft/20 text-center animate-fade-in">
+                    <h3 class="text-2xl font-bold text-white mb-4" data-translate="serviceCTASectionTitle">Ready to Transform Your Business with AI?</h3>
+                    <p class="text-white/90 mb-6 max-w-2xl mx-auto" data-translate="serviceCTASectionP1">
+                        Let's explore how AI can revolutionize your operations and drive growth.
                     </p>
                     <a href="index.html#contact"
-                       class="inline-block bg-purple-600 hover:bg-purple-700 dark:bg-neon-pink-DEFAULT/80 dark:hover:bg-neon-pink-DEFAULT text-white font-semibold py-2 px-6 rounded-lg transition-transform transform hover:scale-105"
-                       data-translate="contactUs">Consult Our AI Experts</a>
+                       class="inline-block bg-white text-indigo-600 dark:text-neon-cyan-DEFAULT font-semibold py-3 px-8 rounded-lg transition-all transform hover:scale-105 hover:shadow-lg"
+                       data-translate="contactUs">Get Started Today</a>
                 </div>
             </article>
         </div>
@@ -156,6 +290,5 @@
     </footer>
 
     <script src="data.js"></script>
-    <script src="app.js"></script>
 </body>
 </html>

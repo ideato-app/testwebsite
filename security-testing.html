@@ -76,55 +76,190 @@
     </header>
 
     <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
-        <div class="max-w-3xl mx-auto">
-            <div class="text-center mb-12">
-                <span class="text-sm font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT uppercase tracking-wider" data-translate="serviceLabel">Our Services</span>
-                <h1 class="mt-2 text-4xl sm:text-5xl font-orbitron font-bold">
+        <div class="max-w-4xl mx-auto">
+            <!-- Hero Section with Enhanced Typography -->
+            <div class="text-center mb-16 relative">
+                <div class="absolute -top-20 -left-20 w-40 h-40 bg-neon-cyan-DEFAULT/10 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-20 -right-20 w-40 h-40 bg-neon-pink-DEFAULT/10 rounded-full blur-3xl"></div>
+                <span class="text-sm font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT uppercase tracking-wider animate-fade-in" data-translate="serviceLabel">Our Services</span>
+                <h1 class="mt-2 text-5xl sm:text-6xl font-orbitron font-bold animate-slide-up">
                     <span class="dark:neon-text-cyan light:text-indigo-700" data-translate="serviceSecurityTitle">Security Testing</span>
                 </h1>
-                <p class="mt-4 text-lg md:text-xl text-slate-600 dark:text-slate-300" data-translate="serviceSecurityTagline">
-                    Protecting your digital assets with comprehensive security assessments and vulnerability management.
+                <p class="mt-6 text-xl md:text-2xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto animate-fade-in" data-translate="serviceSecurityTagline">
+                    Protecting your digital assets with comprehensive security testing and vulnerability assessment.
                 </p>
             </div>
 
+            <!-- Main Content with Enhanced Styling -->
             <article class="prose prose-lg dark:prose-invert max-w-none mx-auto">
-                <p data-translate="serviceSecurityP1">
-                    In today's digital landscape, security is paramount. Idea to App offers robust security testing services to identify and mitigate vulnerabilities in your web applications, mobile apps, and IT infrastructure. Our experienced security professionals (3+ years in the field) employ industry-best practices to safeguard your data and maintain user trust.
-                </p>
+                <!-- Introduction Section -->
+                <div class="bg-white dark:bg-slate-800/50 rounded-2xl p-8 shadow-xl dark:shadow-neon-cyan-soft/20 mb-12 animate-fade-in">
+                    <p class="text-lg leading-relaxed" data-translate="serviceSecurityP1">
+                        At Idea to App, we provide comprehensive security testing services to ensure your applications and systems are protected against potential threats. Our experienced security team uses industry-standard methodologies and tools to identify and address vulnerabilities before they can be exploited.
+                    </p>
+                </div>
 
-                <h2 data-translate="serviceSecuritySub1Title">Our Security Testing Services</h2>
-                <ul>
-                    <li data-translate="serviceSecurityOffer1"><strong>Vulnerability Assessments:</strong> Systematic review of security weaknesses in an information system.</li>
-                    <li data-translate="serviceSecurityOffer2"><strong>Penetration Testing (Pen Testing):</strong> Simulating real-world attacks to identify exploitable vulnerabilities in web, mobile, and network environments.</li>
-                    <li data-translate="serviceSecurityOffer3"><strong>Web Application Security Testing:</strong> Focusing on common web vulnerabilities like SQL injection, XSS, CSRF, and more (OWASP Top 10).</li>
-                    <li data-translate="serviceSecurityOffer4"><strong>Mobile Application Security Testing:</strong> Assessing security risks in iOS and Android applications, including data storage, transmission, and API interactions.</li>
-                    <li data-translate="serviceSecurityOffer5"><strong>Network Security Audits:</strong> Evaluating the security of your network infrastructure, including firewalls, routers, and servers.</li>
-                    <li data-translate="serviceSecurityOffer6"><strong>Code Review & Secure SDLC:</strong> Integrating security into the software development lifecycle (SDLC) through secure code reviews and best practices.</li>
-                </ul>
+                <!-- Process Section with Icons -->
+                <div class="mb-16">
+                    <h2 class="text-3xl font-bold mb-8 flex items-center gap-3 animate-slide-up">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500 dark:text-neon-cyan-DEFAULT"><path d="M12 2v4"/><path d="M12 18v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="m16.24 16.24 2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="m16.24 7.76 2.83-2.83"/></svg>
+                        <span data-translate="serviceSecuritySub1Title">Our Security Testing Process</span>
+                    </h2>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-slide-up">
+                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-neon-cyan-DEFAULT">Reconnaissance</h3>
+                            <p class="text-slate-600 dark:text-slate-300">Gathering information about the target system to identify potential vulnerabilities.</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-slide-up">
+                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-neon-cyan-DEFAULT">Vulnerability Assessment</h3>
+                            <p class="text-slate-600 dark:text-slate-300">Systematic review of security weaknesses in the system.</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-slide-up">
+                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-neon-cyan-DEFAULT">Penetration Testing</h3>
+                            <p class="text-slate-600 dark:text-slate-300">Simulated attacks to identify exploitable vulnerabilities.</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-slide-up">
+                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-neon-cyan-DEFAULT">Remediation & Reporting</h3>
+                            <p class="text-slate-600 dark:text-slate-300">Detailed reports and recommendations for fixing identified issues.</p>
+                        </div>
+                    </div>
+                </div>
 
-                <h2 data-translate="serviceSecuritySub2Title">Our Approach to Security</h2>
-                <p data-translate="serviceSecuritySub2P1">
-                    We adopt a proactive and comprehensive approach to security:
-                </p>
-                <ul>
-                    <li data-translate="serviceSecurityApproach1"><strong>Threat Modeling:</strong> Identifying potential threats and defining countermeasures early in the development process.</li>
-                    <li data-translate="serviceSecurityApproach2"><strong>Manual & Automated Testing:</strong> Combining the thoroughness of manual testing with the efficiency of automated tools.</li>
-                    <li data-translate="serviceSecurityApproach3"><strong>Risk-Based Prioritization:</strong> Focusing on vulnerabilities that pose the greatest risk to your business.</li>
-                    <li data-translate="serviceSecurityApproach4"><strong>Actionable Reporting:</strong> Providing clear, detailed reports with remediation guidance.</li>
+                <!-- Services Section -->
+                <div class="mb-16">
+                    <h2 class="text-3xl font-bold mb-8 flex items-center gap-3 animate-slide-up">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500 dark:text-neon-cyan-DEFAULT"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+                        <span>Our Security Services</span>
+                    </h2>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-4 text-center shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-fade-in">
+                            <h3 class="font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">Web Security</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">OWASP Testing, XSS, SQL Injection</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-4 text-center shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-fade-in">
+                            <h3 class="font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">Mobile Security</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">iOS, Android, API Testing</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-4 text-center shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-fade-in">
+                            <h3 class="font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">Network Security</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">Firewall, VPN, IDS Testing</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-4 text-center shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-fade-in">
+                            <h3 class="font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">Compliance</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">GDPR, HIPAA, PCI DSS</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pricing Section -->
+                <div class="mb-16">
+                    <h2 class="text-3xl font-bold mb-8 text-center animate-slide-up">Choose Your Plan</h2>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Basic Plan -->
+                        <div class="bg-white dark:bg-slate-800/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl dark:hover:shadow-neon-cyan-soft/20 transition-all transform hover:-translate-y-1 animate-fade-in">
+                            <div class="text-center mb-6">
+                                <h3 class="text-2xl font-bold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">Basic</h3>
+                                <p class="text-4xl font-bold mb-4">$1,999<span class="text-lg text-slate-500">/project</span></p>
+                                <p class="text-slate-600 dark:text-slate-300">For small applications</p>
+                            </div>
+                            <ul class="space-y-4 mb-8">
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Basic Vulnerability Scan</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>OWASP Top 10 Testing</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Basic Report</span>
+                                </li>
+                            </ul>
+                            <a href="index.html#contact" class="block text-center bg-indigo-600 hover:bg-indigo-700 dark:bg-neon-cyan-DEFAULT/80 dark:hover:bg-neon-cyan-DEFAULT text-white font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-105">Get Started</a>
+                        </div>
+
+                        <!-- Professional Plan -->
+                        <div class="bg-white dark:bg-slate-800/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl dark:hover:shadow-neon-cyan-soft/20 transition-all transform hover:-translate-y-1 animate-fade-in">
+                            <div class="text-center mb-6">
+                                <h3 class="text-2xl font-bold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">Professional</h3>
+                                <p class="text-4xl font-bold mb-4">$4,999<span class="text-lg text-slate-500">/project</span></p>
+                                <p class="text-slate-600 dark:text-slate-300">For medium businesses</p>
+                            </div>
+                            <ul class="space-y-4 mb-8">
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Full Penetration Testing</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>API Security Testing</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Detailed Report</span>
+                                </li>
                 </ul>
-                
-                <div class="mt-12 p-6 bg-slate-100 dark:bg-slate-800 rounded-lg border border-indigo-300 dark:border-neon-cyan-DEFAULT/50 dark:shadow-neon-cyan-soft">
-                    <h3 class="text-xl font-semibold text-indigo-700 dark:text-neon-cyan-DEFAULT mb-3" data-translate="serviceSecurityCTASectionTitle">Secure Your Digital Future Today</h3>
-                    <p class="text-slate-700 dark:text-slate-300 mb-4" data-translate="serviceSecurityCTASectionP1">
-                        Don't wait for a breach. Let our security experts help you build and maintain a resilient digital presence.
+                            <a href="index.html#contact" class="block text-center bg-indigo-600 hover:bg-indigo-700 dark:bg-neon-cyan-DEFAULT/80 dark:hover:bg-neon-cyan-DEFAULT text-white font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-105">Get Started</a>
+                        </div>
+
+                        <!-- Enterprise Plan -->
+                        <div class="bg-white dark:bg-slate-800/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl dark:hover:shadow-neon-cyan-soft/20 transition-all transform hover:-translate-y-1 animate-fade-in">
+                            <div class="text-center mb-6">
+                                <h3 class="text-2xl font-bold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">Enterprise</h3>
+                                <p class="text-4xl font-bold mb-4">Custom<span class="text-lg text-slate-500">/project</span></p>
+                                <p class="text-slate-600 dark:text-slate-300">For large organizations</p>
+                            </div>
+                            <ul class="space-y-4 mb-8">
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Comprehensive Testing</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Compliance Testing</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Dedicated Security Team</span>
+                                </li>
+                </ul>
+                            <a href="index.html#contact" class="block text-center bg-indigo-600 hover:bg-indigo-700 dark:bg-neon-cyan-DEFAULT/80 dark:hover:bg-neon-cyan-DEFAULT text-white font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-105">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enhanced CTA Section -->
+                <div class="mt-16 p-8 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-neon-cyan-DEFAULT/80 dark:to-neon-pink-DEFAULT/80 rounded-2xl shadow-xl dark:shadow-neon-cyan-soft/20 text-center animate-fade-in">
+                    <h3 class="text-2xl font-bold text-white mb-4" data-translate="serviceCTASectionTitle">Ready to Secure Your Applications?</h3>
+                    <p class="text-white/90 mb-6 max-w-2xl mx-auto" data-translate="serviceCTASectionP1">
+                        Let's protect your digital assets with our comprehensive security testing services.
                     </p>
                     <a href="index.html#contact"
-                       class="inline-block bg-indigo-600 hover:bg-indigo-700 dark:bg-neon-cyan-DEFAULT/80 dark:hover:bg-neon-cyan-DEFAULT text-white font-semibold py-2 px-6 rounded-lg transition-transform transform hover:scale-105"
-                       data-translate="contactUs">Request a Security Consultation</a>
+                       class="inline-block bg-white text-indigo-600 dark:text-neon-cyan-DEFAULT font-semibold py-3 px-8 rounded-lg transition-all transform hover:scale-105 hover:shadow-lg"
+                       data-translate="contactUs">Get Started Today</a>
                 </div>
             </article>
         </div>
     </main>
+
+    <!-- Add Animation Styles -->
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        .animate-slide-up {
+            animation: slideUp 0.6s ease-out forwards;
+        }
+    </style>
 
     <footer id="contact" class="bg-slate-800 dark:bg-black text-slate-300 dark:text-slate-400 py-12 mt-16">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">

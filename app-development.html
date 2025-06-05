@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-translate="pageTitleUIUX">UI/UX Design - Idea to App</title>
+    <title data-translate="pageTitleAppDev">App Development - Idea to App</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-     <script>
-        tailwind.config = { /* ... Same Tailwind config ... */
+    <script>
+        tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
@@ -30,20 +30,51 @@
         }
     </script>
     <style>
-        /* ... Same custom styles ... */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #4f46e5; border-radius: 4px; }
-        .dark ::-webkit-scrollbar-thumb { background: #818cf8; }
-        .neon-text-cyan { text-shadow: 0 0 5px theme('colors.neon-cyan'), 0 0 10px theme('colors.neon-cyan'); }
-        .neon-text-pink { text-shadow: 0 0 5px theme('colors.neon-pink'), 0 0 10px theme('colors.neon-pink'); }
-         .dark .neon-glow-cyan {
-            box-shadow: 0 0 8px 2px rgb(0 255 255 / 0.6), 0 0 12px 4px rgb(0 255 255 / 0.4);
-            border-color: rgb(0 255 255 / 0.7);
+        /* ... existing styles ... */
+        
+        /* Animation Styles */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
-         .dark .neon-glow-pink {
-            box-shadow: 0 0 8px 2px rgb(255 0 255 / 0.6), 0 0 12px 4px rgb(255 0 255 / 0.4);
-            border-color: rgb(255 0 255 / 0.7);
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        .animate-slide-up {
+            animation: slideUp 0.6s ease-out forwards;
+        }
+        
+        /* Hover Effects */
+        .hover-glow {
+            transition: all 0.3s ease;
+        }
+        .hover-glow:hover {
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+        }
+        .dark .hover-glow:hover {
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+        }
+        
+        /* Navigation Underline */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: currentColor;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
         }
     </style>
 </head>
@@ -83,10 +114,10 @@
                 <div class="absolute -bottom-20 -right-20 w-40 h-40 bg-neon-pink-DEFAULT/10 rounded-full blur-3xl"></div>
                 <span class="text-sm font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT uppercase tracking-wider animate-fade-in" data-translate="serviceLabel">Our Services</span>
                 <h1 class="mt-2 text-5xl sm:text-6xl font-orbitron font-bold animate-slide-up">
-                    <span class="dark:neon-text-cyan light:text-indigo-700" data-translate="serviceUIUXTitle">UI/UX Design</span>
+                    <span class="dark:neon-text-cyan light:text-indigo-700" data-translate="serviceAppDevTitle">App Development</span>
                 </h1>
-                <p class="mt-6 text-xl md:text-2xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto animate-fade-in" data-translate="serviceUIUXTagline">
-                    Creating intuitive and engaging user experiences that delight your customers and drive business growth.
+                <p class="mt-6 text-xl md:text-2xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto animate-fade-in" data-translate="serviceAppDevTagline">
+                    Innovative mobile and desktop applications for iOS, Android, macOS, and Windows, designed to perform.
                 </p>
             </div>
 
@@ -94,59 +125,59 @@
             <article class="prose prose-lg dark:prose-invert max-w-none mx-auto">
                 <!-- Introduction Section -->
                 <div class="bg-white dark:bg-slate-800/50 rounded-2xl p-8 shadow-xl dark:shadow-neon-cyan-soft/20 mb-12 animate-fade-in">
-                    <p class="text-lg leading-relaxed" data-translate="serviceUIUXP1">
-                        At Idea to App, we specialize in creating beautiful, intuitive, and user-centered designs that enhance user engagement and satisfaction. Our experienced team combines creativity with user research to deliver designs that not only look great but also provide exceptional user experiences.
+                    <p class="text-lg leading-relaxed" data-translate="serviceAppDevP1">
+                        Idea to App transforms your concepts into high-performing applications. Our skilled team, with over 3 years of experience, develops native, hybrid, and cross-platform apps that deliver seamless user experiences and robust functionality. We cover the entire lifecycle, from <a href="idea-validation.html" class="text-indigo-500 dark:text-neon-cyan-DEFAULT/90 hover:underline" data-translate="serviceIdeaValidationLink">Idea Validation</a> to <a href="app-deployment.html" class="text-indigo-500 dark:text-neon-cyan-DEFAULT/90 hover:underline" data-translate="serviceAppStoreLink">App Store Deployment</a>.
                     </p>
                 </div>
 
-                <!-- Process Section with Icons -->
+                <!-- Expertise Section -->
                 <div class="mb-16">
                     <h2 class="text-3xl font-bold mb-8 flex items-center gap-3 animate-slide-up">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500 dark:text-neon-cyan-DEFAULT"><path d="M12 2v4"/><path d="M12 18v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="m16.24 16.24 2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="m16.24 7.76 2.83-2.83"/></svg>
-                        <span data-translate="serviceUIUXSub1Title">Our Design Process</span>
+                        <span data-translate="serviceAppDevSub1Title">Our App Development Expertise</span>
                     </h2>
                     <div class="grid md:grid-cols-2 gap-8">
                         <div class="bg-white dark:bg-slate-800/50 rounded-xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-slide-up">
-                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-neon-cyan-DEFAULT">Research & Analysis</h3>
-                            <p class="text-slate-600 dark:text-slate-300">Understanding user needs, behaviors, and business goals through comprehensive research.</p>
+                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-neon-cyan-DEFAULT">iOS Development</h3>
+                            <p class="text-slate-600 dark:text-slate-300">Engaging and high-performance apps for iPhone and iPad using Swift and Objective-C.</p>
                         </div>
                         <div class="bg-white dark:bg-slate-800/50 rounded-xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-slide-up">
-                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-neon-cyan-DEFAULT">Wireframing & Prototyping</h3>
-                            <p class="text-slate-600 dark:text-slate-300">Creating interactive prototypes to visualize and test user flows and interactions.</p>
+                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-neon-cyan-DEFAULT">Android Development</h3>
+                            <p class="text-slate-600 dark:text-slate-300">Feature-rich applications for the diverse Android ecosystem using Kotlin and Java.</p>
                         </div>
                         <div class="bg-white dark:bg-slate-800/50 rounded-xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-slide-up">
-                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-neon-cyan-DEFAULT">Visual Design</h3>
-                            <p class="text-slate-600 dark:text-slate-300">Crafting beautiful, consistent, and on-brand visual designs that engage users.</p>
+                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-neon-cyan-DEFAULT">Cross-Platform</h3>
+                            <p class="text-slate-600 dark:text-slate-300">Cost-effective solutions using React Native and Flutter for multiple platforms.</p>
                         </div>
                         <div class="bg-white dark:bg-slate-800/50 rounded-xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-slide-up">
-                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-neon-cyan-DEFAULT">Testing & Iteration</h3>
-                            <p class="text-slate-600 dark:text-slate-300">Conducting user testing and refining designs based on feedback and insights.</p>
+                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-neon-cyan-DEFAULT">Desktop Apps</h3>
+                            <p class="text-slate-600 dark:text-slate-300">Powerful applications for macOS and Windows environments.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Services Section -->
+                <!-- Process Section -->
                 <div class="mb-16">
                     <h2 class="text-3xl font-bold mb-8 flex items-center gap-3 animate-slide-up">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500 dark:text-neon-cyan-DEFAULT"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
-                        <span>Our Design Services</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500 dark:text-neon-cyan-DEFAULT"><path d="M12 2v4"/><path d="M12 18v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="m16.24 16.24 2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="m16.24 7.76 2.83-2.83"/></svg>
+                        <span data-translate="serviceAppDevSub2Title">The Journey of Your App</span>
                     </h2>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-4 text-center shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-fade-in">
-                            <h3 class="font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">User Research</h3>
-                            <p class="text-sm text-slate-600 dark:text-slate-300">Interviews, Surveys, Analytics</p>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-slide-up">
+                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-neon-cyan-DEFAULT">Concept & Strategy</h3>
+                            <p class="text-slate-600 dark:text-slate-300">Deep dive into your app idea, target audience, and monetization strategy.</p>
                         </div>
-                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-4 text-center shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-fade-in">
-                            <h3 class="font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">UI Design</h3>
-                            <p class="text-sm text-slate-600 dark:text-slate-300">Visual Design, Style Guides</p>
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-slide-up">
+                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-neon-cyan-DEFAULT">Design & Prototyping</h3>
+                            <p class="text-slate-600 dark:text-slate-300">Creating intuitive wireframes, mockups, and interactive prototypes.</p>
                         </div>
-                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-4 text-center shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-fade-in">
-                            <h3 class="font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">UX Design</h3>
-                            <p class="text-sm text-slate-600 dark:text-slate-300">Wireframes, Prototypes</p>
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-slide-up">
+                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-neon-cyan-DEFAULT">Development & Testing</h3>
+                            <p class="text-slate-600 dark:text-slate-300">Agile development with comprehensive testing and quality assurance.</p>
                         </div>
-                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-4 text-center shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-fade-in">
-                            <h3 class="font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">Usability Testing</h3>
-                            <p class="text-sm text-slate-600 dark:text-slate-300">User Testing, Feedback</p>
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-slide-up">
+                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-neon-cyan-DEFAULT">Deployment & Support</h3>
+                            <p class="text-slate-600 dark:text-slate-300">App store submission and ongoing maintenance and updates.</p>
                         </div>
                     </div>
                 </div>
@@ -159,21 +190,21 @@
                         <div class="bg-white dark:bg-slate-800/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl dark:hover:shadow-neon-cyan-soft/20 transition-all transform hover:-translate-y-1 animate-fade-in">
                             <div class="text-center mb-6">
                                 <h3 class="text-2xl font-bold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">Basic</h3>
-                                <p class="text-4xl font-bold mb-4">$1,499<span class="text-lg text-slate-500">/project</span></p>
-                                <p class="text-slate-600 dark:text-slate-300">Perfect for startups</p>
+                                <p class="text-4xl font-bold mb-4">$2,999<span class="text-lg text-slate-500">/project</span></p>
+                                <p class="text-slate-600 dark:text-slate-300">For startups</p>
                             </div>
                             <ul class="space-y-4 mb-8">
                                 <li class="flex items-center gap-2">
                                     <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    <span>5 Page Designs</span>
+                                    <span>Single Platform App</span>
                                 </li>
                                 <li class="flex items-center gap-2">
                                     <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    <span>Basic Wireframes</span>
+                                    <span>Basic Features</span>
                                 </li>
                                 <li class="flex items-center gap-2">
                                     <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    <span>Style Guide</span>
+                                    <span>Email Support</span>
                                 </li>
                             </ul>
                             <a href="index.html#contact" class="block text-center bg-indigo-600 hover:bg-indigo-700 dark:bg-neon-cyan-DEFAULT/80 dark:hover:bg-neon-cyan-DEFAULT text-white font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-105">Get Started</a>
@@ -183,23 +214,23 @@
                         <div class="bg-white dark:bg-slate-800/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl dark:hover:shadow-neon-cyan-soft/20 transition-all transform hover:-translate-y-1 animate-fade-in">
                             <div class="text-center mb-6">
                                 <h3 class="text-2xl font-bold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">Professional</h3>
-                                <p class="text-4xl font-bold mb-4">$3,499<span class="text-lg text-slate-500">/project</span></p>
-                                <p class="text-slate-600 dark:text-slate-300">Ideal for growing businesses</p>
+                                <p class="text-4xl font-bold mb-4">$4,999<span class="text-lg text-slate-500">/project</span></p>
+                                <p class="text-slate-600 dark:text-slate-300">For growing businesses</p>
                             </div>
                             <ul class="space-y-4 mb-8">
                                 <li class="flex items-center gap-2">
                                     <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    <span>10-15 Page Designs</span>
+                                    <span>Cross-Platform App</span>
                                 </li>
                                 <li class="flex items-center gap-2">
                                     <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    <span>Interactive Prototypes</span>
+                                    <span>Advanced Features</span>
                                 </li>
                                 <li class="flex items-center gap-2">
                                     <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    <span>User Testing</span>
+                                    <span>Priority Support</span>
                                 </li>
-                </ul>
+                            </ul>
                             <a href="index.html#contact" class="block text-center bg-indigo-600 hover:bg-indigo-700 dark:bg-neon-cyan-DEFAULT/80 dark:hover:bg-neon-cyan-DEFAULT text-white font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-105">Get Started</a>
                         </div>
 
@@ -208,22 +239,22 @@
                             <div class="text-center mb-6">
                                 <h3 class="text-2xl font-bold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">Enterprise</h3>
                                 <p class="text-4xl font-bold mb-4">Custom<span class="text-lg text-slate-500">/project</span></p>
-                                <p class="text-slate-600 dark:text-slate-300">For large-scale projects</p>
+                                <p class="text-slate-600 dark:text-slate-300">For large organizations</p>
                             </div>
                             <ul class="space-y-4 mb-8">
                                 <li class="flex items-center gap-2">
                                     <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    <span>Full Design System</span>
+                                    <span>Custom Solutions</span>
                                 </li>
                                 <li class="flex items-center gap-2">
                                     <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    <span>Advanced Prototyping</span>
+                                    <span>Dedicated Team</span>
                                 </li>
                                 <li class="flex items-center gap-2">
                                     <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    <span>Dedicated Designer</span>
+                                    <span>24/7 Support</span>
                                 </li>
-                </ul>
+                            </ul>
                             <a href="index.html#contact" class="block text-center bg-indigo-600 hover:bg-indigo-700 dark:bg-neon-cyan-DEFAULT/80 dark:hover:bg-neon-cyan-DEFAULT text-white font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-105">Contact Us</a>
                         </div>
                     </div>
@@ -231,9 +262,9 @@
 
                 <!-- Enhanced CTA Section -->
                 <div class="mt-16 p-8 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-neon-cyan-DEFAULT/80 dark:to-neon-pink-DEFAULT/80 rounded-2xl shadow-xl dark:shadow-neon-cyan-soft/20 text-center animate-fade-in">
-                    <h3 class="text-2xl font-bold text-white mb-4" data-translate="serviceCTASectionTitle">Ready to Transform Your User Experience?</h3>
-                    <p class="text-white/90 mb-6 max-w-2xl mx-auto" data-translate="serviceCTASectionP1">
-                        Let's create a design that delights your users and drives business growth.
+                    <h3 class="text-2xl font-bold text-white mb-4" data-translate="serviceAppDevCTASectionTitle">Ready to Launch Your Dream App?</h3>
+                    <p class="text-white/90 mb-6 max-w-2xl mx-auto" data-translate="serviceAppDevCTASectionP1">
+                        Partner with us to develop an application that captivates users and achieves your business goals.
                     </p>
                     <a href="index.html#contact"
                        class="inline-block bg-white text-indigo-600 dark:text-neon-cyan-DEFAULT font-semibold py-3 px-8 rounded-lg transition-all transform hover:scale-105 hover:shadow-lg"
@@ -242,24 +273,6 @@
             </article>
         </div>
     </main>
-
-    <!-- Add Animation Styles -->
-    <style>
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideUp {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        .animate-fade-in {
-            animation: fadeIn 0.6s ease-out forwards;
-        }
-        .animate-slide-up {
-            animation: slideUp 0.6s ease-out forwards;
-        }
-    </style>
 
     <footer id="contact" class="bg-slate-800 dark:bg-black text-slate-300 dark:text-slate-400 py-12 mt-16">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">

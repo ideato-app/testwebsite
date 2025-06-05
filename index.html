@@ -72,6 +72,24 @@
         .dark .nav-link::after {
             background-color: theme('colors.neon-cyan.DEFAULT');
         }
+        
+        /* Typewriter Animation Styles */
+        .typed-text {
+            display: inline-block;
+            position: relative;
+        }
+        
+        .typed-text.typing::after {
+            content: '|';
+            position: absolute;
+            right: -4px;
+            animation: blink 1s step-end infinite;
+        }
+        
+        @keyframes blink {
+            from, to { opacity: 1; }
+            50% { opacity: 0; }
+        }
     </style>
 </head>
 <body class="bg-light-bg dark:bg-dark-bg text-slate-800 dark:text-slate-200 font-sans transition-colors duration-300">
@@ -117,7 +135,7 @@
                 <div class="text-center md:text-left">
                     <h1 class="text-4xl sm:text-5xl md:text-6xl font-display font-bold mb-6 leading-tight">
                 <span class="dark:neon-text-cyan light:text-indigo-700" data-translate="homeHeroTitle1">Idea to App:</span>
-                <span class="block sm:inline dark:neon-text-pink light:text-purple-700" data-translate="homeHeroTitle2">We Bring Your Visions to Life</span>
+                <span class="block sm:inline dark:neon-text-pink light:text-purple-700 typed-text" data-text="We Bring Your Visions to Life" data-translate="homeHeroTitle2"></span>
             </h1>
                     <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto md:mx-0 text-slate-600 dark:text-slate-300" data-translate="homeHeroSubtitle">
                 Transforming innovative ideas into powerful software solutions. From web and mobile apps to AI integration, our experienced team (3+ years of expertise!) is ready to build your next big thing.
@@ -382,5 +400,38 @@
 
     <script src="data.js"></script>
     <script src="app.js"></script>
+    <script>
+        // Typewriter Animation
+        function typeWriter(element, text, speed = 75) {
+            let i = 0;
+            element.innerHTML = ''; // Clear existing content
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                } else {
+                    // Remove cursor after animation completes
+                    element.classList.remove('typing');
+                }
+            }
+            
+            // Add cursor class before starting animation
+            element.classList.add('typing');
+            type();
+        }
+
+        // Initialize typewriter animation when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            const typedElement = document.querySelector('.typed-text');
+            if (typedElement) {
+                const text = typedElement.getAttribute('data-text');
+                if (text) {
+                    typeWriter(typedElement, text);
+                }
+            }
+        });
+    </script>
 </body>
 </html>

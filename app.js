@@ -107,5 +107,37 @@ document.addEventListener('DOMContentLoaded', () => {
     // a general `lucide.createIcons()` call might not be strictly needed for *them*,
     // but it's good practice if other Lucide icons are used elsewhere via data-lucide attributes.
 
+    // Typewriter Animation
+    function typeWriter(element, text, speed = 75) {
+        let i = 0;
+        element.innerHTML = ''; // Clear existing content
+        
+        function type() {
+            if (i < text.length) {
+                element.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(type, speed);
+            } else {
+                // Remove cursor after animation completes
+                element.classList.remove('typing');
+            }
+        }
+        
+        // Add cursor class before starting animation
+        element.classList.add('typing');
+        type();
+    }
+
+    // Initialize typewriter animation when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        const typedElement = document.querySelector('.typed-text');
+        if (typedElement) {
+            const text = typedElement.getAttribute('data-text');
+            if (text) {
+                typeWriter(typedElement, text);
+            }
+        }
+    });
+
 });
 

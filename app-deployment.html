@@ -76,51 +76,168 @@
     </header>
 
     <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
-        <div class="max-w-3xl mx-auto">
-            <div class="text-center mb-12">
-                <span class="text-sm font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT uppercase tracking-wider" data-translate="serviceLabel">Our Services</span>
-                <h1 class="mt-2 text-4xl sm:text-5xl font-orbitron font-bold">
-                    <span class="dark:neon-text-cyan light:text-indigo-700" data-translate="serviceAppDeployTitle">App Deployment & Website Hosting</span>
+        <div class="max-w-4xl mx-auto">
+            <!-- Hero Section with Enhanced Typography -->
+            <div class="text-center mb-16 relative">
+                <div class="absolute -top-20 -left-20 w-40 h-40 bg-neon-cyan-DEFAULT/10 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-20 -right-20 w-40 h-40 bg-neon-pink-DEFAULT/10 rounded-full blur-3xl"></div>
+                <span class="text-sm font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT uppercase tracking-wider animate-fade-in" data-translate="serviceLabel">Our Services</span>
+                <h1 class="mt-2 text-5xl sm:text-6xl font-orbitron font-bold animate-slide-up">
+                    <span class="dark:neon-text-cyan light:text-indigo-700" data-translate="serviceAppDeploymentTitle">App Deployment</span>
                 </h1>
-                <p class="mt-4 text-lg md:text-xl text-slate-600 dark:text-slate-300" data-translate="serviceAppDeployTagline">
-                    Seamless app deployment to major stores and reliable, scalable hosting solutions for your digital assets.
+                <p class="mt-6 text-xl md:text-2xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto animate-fade-in" data-translate="serviceAppDeploymentTagline">
+                    Seamlessly deploy and scale your applications with our robust cloud infrastructure solutions.
                 </p>
             </div>
 
+            <!-- Main Content with Enhanced Styling -->
             <article class="prose prose-lg dark:prose-invert max-w-none mx-auto">
-                <p data-translate="serviceAppDeployP1">
-                    Launching your application or website is a critical step. At Idea to App, our experienced team (3+ years) ensures a smooth and efficient deployment process. We handle the complexities of app store submissions and provide robust hosting solutions, so you can focus on your core business.
-                </p>
+                <!-- Introduction Section -->
+                <div class="bg-white dark:bg-slate-800/50 rounded-2xl p-8 shadow-xl dark:shadow-neon-cyan-soft/20 mb-12 animate-fade-in">
+                    <p class="text-lg leading-relaxed" data-translate="serviceAppDeploymentP1">
+                        At Idea to App, we provide comprehensive deployment and hosting solutions that ensure your applications run smoothly and scale efficiently. Our team handles everything from server setup to continuous deployment, allowing you to focus on your core business.
+                    </p>
+                </div>
 
-                <h2 data-translate="serviceAppDeploySub1Title">Our Deployment & Hosting Services</h2>
-                <ul>
-                    <li data-translate="serviceAppDeployOffer1"><strong>App Store Submission:</strong> Expert guidance and management for submitting apps to the Apple App Store and Google Play Store, ensuring compliance with all guidelines.</li>
-                    <li data-translate="serviceAppDeployOffer2"><strong>Website Hosting:</strong> Secure, scalable, and high-performance hosting solutions tailored to your website's needs, from shared hosting to dedicated servers and cloud platforms.</li>
-                    <li data-translate="serviceAppDeployOffer3"><strong>Cloud Deployment:</strong> Expertise in deploying applications on leading cloud platforms like AWS, Google Cloud, and Azure for scalability and reliability.</li>
-                    <li data-translate="serviceAppDeployOffer4"><strong>CI/CD Pipelines:</strong> Implementing Continuous Integration and Continuous Deployment (CI/CD) pipelines for automated testing and faster release cycles.</li>
-                    <li data-translate="serviceAppDeployOffer5"><strong>Server Management & Maintenance:</strong> Proactive server monitoring, security updates, backups, and performance optimization.</li>
-                    <li data-translate="serviceAppDeployOffer6"><strong>Domain & SSL Management:</strong> Assistance with domain registration, DNS configuration, and SSL certificate installation for secure connections.</li>
-                </ul>
+                <!-- Process Section with Icons -->
+                <div class="mb-16">
+                    <h2 class="text-3xl font-bold mb-8 flex items-center gap-3 animate-slide-up">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500 dark:text-neon-cyan-DEFAULT"><path d="M12 2v4"/><path d="M12 18v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="m16.24 16.24 2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="m16.24 7.76 2.83-2.83"/></svg>
+                        <span data-translate="serviceAppDeploymentSub1Title">Our Deployment Process</span>
+                    </h2>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-slide-up">
+                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-neon-cyan-DEFAULT">Infrastructure Setup</h3>
+                            <p class="text-slate-600 dark:text-slate-300">Configuring cloud infrastructure and server environments.</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-slide-up">
+                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-neon-cyan-DEFAULT">CI/CD Pipeline</h3>
+                            <p class="text-slate-600 dark:text-slate-300">Setting up automated deployment workflows.</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-slide-up">
+                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-neon-cyan-DEFAULT">Monitoring</h3>
+                            <p class="text-slate-600 dark:text-slate-300">Implementing comprehensive monitoring and logging.</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-slide-up">
+                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-neon-cyan-DEFAULT">Scaling</h3>
+                            <p class="text-slate-600 dark:text-slate-300">Configuring auto-scaling and load balancing.</p>
+                        </div>
+                    </div>
+                </div>
 
-                <h2 data-translate="serviceAppDeploySub2Title">Why Choose Us for Deployment & Hosting?</h2>
-                <p data-translate="serviceAppDeploySub2P1">
-                    We understand that reliable deployment and hosting are crucial for user experience and business continuity.
-                </p>
-                <ul>
-                    <li data-translate="serviceAppDeployBenefit1"><strong>Expertise:</strong> Deep knowledge of app store policies and hosting infrastructure.</li>
-                    <li data-translate="serviceAppDeployBenefit2"><strong>Reliability:</strong> High uptime and robust security for your applications and websites. This includes aspects of our <a href="security-testing.html" class="text-indigo-500 dark:text-neon-cyan-DEFAULT/90 hover:underline" data-translate="serviceSecurityLink">Security Testing</a>.</li>
-                    <li data-translate="serviceAppDeployBenefit3"><strong>Scalability:</strong> Solutions that grow with your business needs.</li>
-                    <li data-translate="serviceAppDeployBenefit4"><strong>Support:</strong> Ongoing technical support to address any issues promptly.</li>
+                <!-- Features Section -->
+                <div class="mb-16">
+                    <h2 class="text-3xl font-bold mb-8 flex items-center gap-3 animate-slide-up">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500 dark:text-neon-cyan-DEFAULT"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+                        <span>Deployment Features</span>
+                    </h2>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-4 text-center shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-fade-in">
+                            <h3 class="font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">AWS</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">Cloud infrastructure</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-4 text-center shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-fade-in">
+                            <h3 class="font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">Docker</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">Containerization</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-4 text-center shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-fade-in">
+                            <h3 class="font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">Kubernetes</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">Orchestration</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-4 text-center shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-fade-in">
+                            <h3 class="font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">CI/CD</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">Automated deployment</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pricing Section -->
+                <div class="mb-16">
+                    <h2 class="text-3xl font-bold mb-8 text-center animate-slide-up">Choose Your Plan</h2>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Basic Plan -->
+                        <div class="bg-white dark:bg-slate-800/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl dark:hover:shadow-neon-cyan-soft/20 transition-all transform hover:-translate-y-1 animate-fade-in">
+                            <div class="text-center mb-6">
+                                <h3 class="text-2xl font-bold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">Basic</h3>
+                                <p class="text-4xl font-bold mb-4">$99<span class="text-lg text-slate-500">/month</span></p>
+                                <p class="text-slate-600 dark:text-slate-300">For small applications</p>
+                            </div>
+                            <ul class="space-y-4 mb-8">
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Basic Monitoring</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Manual Scaling</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Email Support</span>
+                                </li>
+                            </ul>
+                            <a href="index.html#contact" class="block text-center bg-indigo-600 hover:bg-indigo-700 dark:bg-neon-cyan-DEFAULT/80 dark:hover:bg-neon-cyan-DEFAULT text-white font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-105">Get Started</a>
+                        </div>
+
+                        <!-- Professional Plan -->
+                        <div class="bg-white dark:bg-slate-800/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl dark:hover:shadow-neon-cyan-soft/20 transition-all transform hover:-translate-y-1 animate-fade-in">
+                            <div class="text-center mb-6">
+                                <h3 class="text-2xl font-bold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">Professional</h3>
+                                <p class="text-4xl font-bold mb-4">$299<span class="text-lg text-slate-500">/month</span></p>
+                                <p class="text-slate-600 dark:text-slate-300">For growing businesses</p>
+                            </div>
+                            <ul class="space-y-4 mb-8">
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Advanced Monitoring</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Auto Scaling</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Priority Support</span>
+                                </li>
                 </ul>
-                
-                <div class="mt-12 p-6 bg-slate-100 dark:bg-slate-800 rounded-lg border border-indigo-300 dark:border-neon-cyan-DEFAULT/50 dark:shadow-neon-cyan-soft">
-                    <h3 class="text-xl font-semibold text-indigo-700 dark:text-neon-cyan-DEFAULT mb-3" data-translate="serviceAppDeployCTASectionTitle">Ready to Go Live?</h3>
-                    <p class="text-slate-700 dark:text-slate-300 mb-4" data-translate="serviceAppDeployCTASectionP1">
-                        Let us handle the technicalities of deployment and hosting, ensuring your digital product reaches its audience successfully.
+                            <a href="index.html#contact" class="block text-center bg-indigo-600 hover:bg-indigo-700 dark:bg-neon-cyan-DEFAULT/80 dark:hover:bg-neon-cyan-DEFAULT text-white font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-105">Get Started</a>
+                        </div>
+
+                        <!-- Enterprise Plan -->
+                        <div class="bg-white dark:bg-slate-800/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl dark:hover:shadow-neon-cyan-soft/20 transition-all transform hover:-translate-y-1 animate-fade-in">
+                            <div class="text-center mb-6">
+                                <h3 class="text-2xl font-bold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">Enterprise</h3>
+                                <p class="text-4xl font-bold mb-4">Custom<span class="text-lg text-slate-500">/month</span></p>
+                                <p class="text-slate-600 dark:text-slate-300">For large organizations</p>
+                            </div>
+                            <ul class="space-y-4 mb-8">
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Custom Solutions</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Dedicated Support</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>SLA Guarantee</span>
+                                </li>
+                </ul>
+                            <a href="index.html#contact" class="block text-center bg-indigo-600 hover:bg-indigo-700 dark:bg-neon-cyan-DEFAULT/80 dark:hover:bg-neon-cyan-DEFAULT text-white font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-105">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enhanced CTA Section -->
+                <div class="mt-16 p-8 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-neon-cyan-DEFAULT/80 dark:to-neon-pink-DEFAULT/80 rounded-2xl shadow-xl dark:shadow-neon-cyan-soft/20 text-center animate-fade-in">
+                    <h3 class="text-2xl font-bold text-white mb-4" data-translate="serviceCTASectionTitle">Ready to Deploy Your App?</h3>
+                    <p class="text-white/90 mb-6 max-w-2xl mx-auto" data-translate="serviceCTASectionP1">
+                        Let's set up a robust deployment infrastructure for your application.
                     </p>
                     <a href="index.html#contact"
-                       class="inline-block bg-indigo-600 hover:bg-indigo-700 dark:bg-neon-cyan-DEFAULT/80 dark:hover:bg-neon-cyan-DEFAULT text-white font-semibold py-2 px-6 rounded-lg transition-transform transform hover:scale-105"
-                       data-translate="contactUs">Discuss Your Needs</a>
+                       class="inline-block bg-white text-indigo-600 dark:text-neon-cyan-DEFAULT font-semibold py-3 px-8 rounded-lg transition-all transform hover:scale-105 hover:shadow-lg"
+                       data-translate="contactUs">Get Started Today</a>
                 </div>
             </article>
         </div>
@@ -159,5 +276,23 @@
 
     <script src="data.js"></script>
     <script src="app.js"></script>
+
+    <!-- Add Animation Styles -->
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        .animate-slide-up {
+            animation: slideUp 0.6s ease-out forwards;
+        }
+    </style>
 </body>
 </html>
