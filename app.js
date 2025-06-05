@@ -15,16 +15,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Set initial theme
     function setTheme(isDark) {
-        if (isDark) {
+            if (isDark) {
             document.documentElement.classList.add('dark');
             themeIconMoon.classList.remove('hidden');
             themeIconSun.classList.add('hidden');
-        } else {
+            } else {
             document.documentElement.classList.remove('dark');
             themeIconSun.classList.remove('hidden');
             themeIconMoon.classList.add('hidden');
+            }
         }
-    }
 
     // Initialize theme
     if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
