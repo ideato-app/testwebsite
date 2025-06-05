@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-translate="pageTitleSecurity">Security Testing - Idea to App</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
      <script>
-        tailwind.config = { /* ... Same Tailwind config ... */
+        tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        orbitron: ['Orbitron', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
                     },
                     colors: {
                         'neon-cyan': 'rgb(0 255 255 / <alpha-value>)',
@@ -22,9 +22,11 @@
                         'light-bg': '#f8fafc',
                     },
                     boxShadow: {
+                        'neon-cyan': '0 0 5px theme(colors.neon-cyan.DEFAULT), 0 0 10px theme(colors.neon-cyan.DEFAULT), 0 0 15px theme(colors.neon-cyan.DEFAULT)',
+                        'neon-pink': '0 0 5px theme(colors.neon-pink.DEFAULT), 0 0 10px theme(colors.neon-pink.DEFAULT), 0 0 15px theme(colors.neon-pink.DEFAULT)',
                         'neon-cyan-soft': '0 0 8px 2px rgb(0 255 255 / 0.5)',
                         'neon-pink-soft': '0 0 8px 2px rgb(255 0 255 / 0.5)',
-                    }
+                    },
                 }
             }
         }
@@ -45,33 +47,58 @@
             box-shadow: 0 0 8px 2px rgb(255 0 255 / 0.6), 0 0 12px 4px rgb(255 0 255 / 0.4);
             border-color: rgb(255 0 255 / 0.7);
         }
+        /* Ensure hidden class strongly hides the theme icons */
+        #theme-toggle #theme-icon-sun.hidden,
+        #theme-toggle #theme-icon-moon.hidden {
+            display: none !important;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        .animate-slide-up {
+            animation: slideUp 0.6s ease-out forwards;
+        }
     </style>
 </head>
 <body class="bg-light-bg dark:bg-dark-bg text-slate-800 dark:text-slate-200 font-sans transition-colors duration-300">
 
     <header class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-md">
-        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-orbitron font-bold dark:neon-text-cyan light:text-indigo-600" data-translate="companyName">Idea to App</a>
-            <div class="hidden md:flex space-x-6 items-center">
-                <a href="index.html" class="hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT" data-translate="navHome">Home</a>
-                <a href="services.html" class="text-indigo-600 dark:text-neon-cyan-DEFAULT font-semibold" data-translate="navServices">Services</a>
-                <a href="index.html#contact" class="hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT" data-translate="navContact">Contact</a>
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-display font-bold dark:neon-text-cyan light:text-indigo-600" >
+                    <img src="assets/img/Idea2AppLogo.png" alt="Idea2App Logo" class="h-8 w-auto">
+                </a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT" >الرئيسية</a>
+                    <a href="services.html" class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT">خدماتنا</a>
+                    <a href="#contact" class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT">التواصل</a>
             </div>
-            <div class="flex items-center space-x-3">
-                <button id="theme-toggle" class="p-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700">
-                    <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun hidden dark:hidden"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
-                    <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon hidden dark:hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                <div class="flex items-center gap-4">
+                    <button id="theme-toggle" class="p-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-neon-cyan" aria-label="Toggle theme">
+                        <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun text-slate-700 dark:text-slate-200"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                        <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon text-slate-700 dark:text-slate-200 hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
                 </button>
-                <button id="language-toggle" class="p-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 text-sm font-semibold">EN/AR</button>
-                 <button id="mobile-menu-button" class="md:hidden p-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700">
+                    <button id="mobile-menu-button" class="md:hidden p-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-neon-cyan">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
                 </button>
+                </div>
             </div>
         </nav>
+        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-800 p-4">
-            <a href="index.html" class="block py-2 hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT" data-translate="navHome">Home</a>
-            <a href="services.html" class="block py-2 text-indigo-600 dark:text-neon-cyan-DEFAULT font-semibold" data-translate="navServices">Services</a>
-            <a href="index.html#contact" class="block py-2 hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT" data-translate="navContact">Contact</a>
+            <div class="flex flex-col space-y-4">
+                <a href="index.html" class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT">الرئيسية</a>
+                <a href="services.html" class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT">خدماتنا</a>
+                <a href="#contact" class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT">التواصل</a>
+            </div>
         </div>
     </header>
 
@@ -281,18 +308,70 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-3 text-white" data-translate="footerContactUs">Contact Us</h4>
                     <p class="mb-1"><a href="mailto:contact@ideatoapp.com" class="hover:text-neon-cyan-DEFAULT">contact@ideatoapp.com</a></p>
-                    <p class="mb-3"><a href="https://wa.me/1234567890" target="_blank" class="hover:text-neon-cyan-DEFAULT" data-translate="footerWhatsApp">WhatsApp Us</a></p>
+                    <p class="mb-3"><a href="https://wa.me/201104532940" target="_blank" class="hover:text-neon-cyan-DEFAULT" data-translate="footerWhatsApp">WhatsApp Us</a></p>
                     <div class="flex space-x-4">
-                        <a href="#" aria-label="Facebook" class="hover:text-neon-cyan-DEFAULT transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z"/></svg></a>
-                        <a href="#" aria-label="Instagram" class="hover:text-neon-pink-DEFAULT transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0 3c-3.866 0-7 3.134-7 7s3.134 7 7 7 7-3.134 7-7-3.134-7-7-7zm0 2c2.761 0 5 2.239 5 5s-2.239 5-5 5-5-2.239-5-5 2.239-5 5-5zm5.5 0c-.828 0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5 1.5-.672 1.5-1.5-.672-1.5-1.5-1.5z"/></svg></a>
-                        <a href="#" aria-label="Twitter" class="hover:text-neon-cyan-DEFAULT transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"/></svg></a>
+                        <a href="https://www.facebook.com/ideato.app.official" aria-label="Facebook" class="hover:text-neon-cyan-DEFAULT transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z"/></svg></a>
+                        <a href="https://www.instagram.com/ideato.app/" aria-label="Instagram" class="hover:text-neon-pink-DEFAULT transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0 3c-3.866 0-7 3.134-7 7s3.134 7 7 7 7-3.134 7-7-3.134-7-7-7zm0 2c2.761 0 5 2.239 5 5s-2.239 5-5 5-5-2.239-5-5 2.239-5 5-5zm5.5 0c-.828 0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5 1.5-.672 1.5-1.5-.672-1.5-1.5-1.5z"/></svg></a>
+                        <a href="https://x.com/ideato_app" aria-label="Twitter" class="hover:text-neon-cyan-DEFAULT transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"/></svg></a>
+                        <a href="https://www.linkedin.com/in/ideato-app" aria-label="LinkedIn" class="hover:text-neon-cyan-DEFAULT transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-3v-8h3v8zm-1.5-8.9c-.9 0-1.5-.7-1.5-1.5s.6-1.5 1.5-1.5 1.5.7 1.5 1.5-.6 1.5-1.5 1.5zm5 8.9h-3v-4.9c0-.9.4-1.3 1.3-1.3h.4c.9 0 1.3.4 1.3 1.3v4.9zm-5-8.9c-.9 0-1.5-.7-1.5-1.5s.6-1.5 1.5-1.5 1.5.7 1.5 1.5-.6 1.5-1.5 1.5zm5 8.9h-3v-4.9c0-.9.4-1.3 1.3-1.3h.4c.9 0 1.3.4 1.3 1.3v4.9z"/></svg></a>
+                        <a href="https://github.com/ideato-app" aria-label="GitHub" class="hover:text-neon-cyan-DEFAULT transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.125 17.7c-.312.062-.625.093-.937.093-2.688 0-4.188-1.875-4.188-5.688s1.5-5.688 4.188-5.688c.312 0 .625.031.937.093-.375-1.25-.812-2.406-1.25-3.406-1.562.125-3.093.688-4.5 1.813-1.406 1.125-2.406 2.5-3 4.062-.625 1.562-.969 3.281-.969 5.093 0 1.813.344 3.531.969 5.093.625 1.562 1.625 2.938 3 4.062 1.406 1.125 2.938 1.688 4.5 1.813.438-1 .875-2.156 1.25-3.406z"/></svg></a>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="data.js"></script>
-    <script src="app.js"></script>
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIconSun = document.getElementById('theme-icon-sun');
+        const themeIconMoon = document.getElementById('theme-icon-moon');
+
+        // Check for saved theme preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeIconSun.classList.add('hidden'); // Hide sun in dark
+            themeIconMoon.classList.remove('hidden'); // Show moon in dark
+        } else {
+            document.documentElement.classList.remove('dark');
+            themeIconSun.classList.remove('hidden'); // Show sun in light
+            themeIconMoon.classList.add('hidden'); // Hide moon in light
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                themeIconSun.classList.remove('hidden'); // Show sun
+                themeIconMoon.classList.add('hidden'); // Hide moon
+                localStorage.theme = 'light';
+            } else {
+                document.documentElement.classList.add('dark');
+                themeIconSun.classList.add('hidden'); // Hide sun
+                themeIconMoon.classList.remove('hidden'); // Show moon
+                localStorage.theme = 'dark';
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('translate-x-full');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.add('translate-x-full');
+            }
+        });
+
+        // Update copyright year
+        const currentYearSpan = document.getElementById('currentYear');
+        if (currentYearSpan) {
+            currentYearSpan.textContent = new Date().getFullYear();
+        }
+    </script>
 </body>
 </html>

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-translate="pageTitlePersonalWeb">Personal Website Development - Idea to App</title>
+    <title>Personal Website Development - Idea to App</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -13,7 +13,7 @@
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        orbitron: ['Orbitron', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
                     },
                     colors: {
                         'neon-cyan': 'rgb(0 255 255 / <alpha-value>)',
@@ -22,9 +22,11 @@
                         'light-bg': '#f8fafc',
                     },
                     boxShadow: {
+                        'neon-cyan': '0 0 5px theme(colors.neon-cyan.DEFAULT), 0 0 10px theme(colors.neon-cyan.DEFAULT), 0 0 15px theme(colors.neon-cyan.DEFAULT)',
+                        'neon-pink': '0 0 5px theme(colors.neon-pink.DEFAULT), 0 0 10px theme(colors.neon-pink.DEFAULT), 0 0 15px theme(colors.neon-pink.DEFAULT)',
                         'neon-cyan-soft': '0 0 8px 2px rgb(0 255 255 / 0.5)',
                         'neon-pink-soft': '0 0 8px 2px rgb(255 0 255 / 0.5)',
-                    }
+                    },
                 }
             }
         }
@@ -36,214 +38,18 @@
         .dark ::-webkit-scrollbar-thumb { background: #818cf8; }
         .neon-text-cyan { text-shadow: 0 0 5px theme('colors.neon-cyan'), 0 0 10px theme('colors.neon-cyan'); }
         .neon-text-pink { text-shadow: 0 0 5px theme('colors.neon-pink'), 0 0 10px theme('colors.neon-pink'); }
-         .dark .neon-glow-cyan {
+        .dark .neon-glow-cyan {
             box-shadow: 0 0 8px 2px rgb(0 255 255 / 0.6), 0 0 12px 4px rgb(0 255 255 / 0.4);
             border-color: rgb(0 255 255 / 0.7);
         }
-         .dark .neon-glow-pink {
-            box-shadow: 0 0 8px 2px rgb(255 0 255 / 0.6), 0 0 12px 4px rgb(255 0 255 / 0.4);
+        .dark .neon-glow-pink {
+            box-shadow: 0 0 8px 2px rgb(255 0 255 / 0.6), 0 0 12px 12px rgb(255 0 255 / 0.4);
             border-color: rgb(255 0 255 / 0.7);
         }
-    </style>
-</head>
-<body class="bg-light-bg dark:bg-dark-bg text-slate-800 dark:text-slate-200 font-sans transition-colors duration-300">
-
-    <header class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-md">
-        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-orbitron font-bold dark:neon-text-cyan light:text-indigo-600" data-translate="companyName">Idea to App</a>
-            <div class="hidden md:flex space-x-6 items-center">
-                <a href="index.html" class="hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT" data-translate="navHome">Home</a>
-                <a href="services.html" class="text-indigo-600 dark:text-neon-cyan-DEFAULT font-semibold" data-translate="navServices">Services</a>
-                <a href="index.html#contact" class="hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT" data-translate="navContact">Contact</a>
-            </div>
-            <div class="flex items-center space-x-3">
-                <button id="theme-toggle" class="p-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700">
-                    <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun hidden dark:hidden"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
-                    <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon hidden dark:hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-                </button>
-                <button id="language-toggle" class="p-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 text-sm font-semibold">EN/AR</button>
-                 <button id="mobile-menu-button" class="md:hidden p-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-                </button>
-            </div>
-        </nav>
-        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-800 p-4">
-            <a href="index.html" class="block py-2 hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT" data-translate="navHome">Home</a>
-            <a href="services.html" class="block py-2 text-indigo-600 dark:text-neon-cyan-DEFAULT font-semibold" data-translate="navServices">Services</a>
-            <a href="index.html#contact" class="block py-2 hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT" data-translate="navContact">Contact</a>
-        </div>
-    </header>
-
-    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
-        <div class="max-w-4xl mx-auto">
-            <!-- Hero Section with Enhanced Typography -->
-            <div class="text-center mb-16 relative">
-                <div class="absolute -top-20 -left-20 w-40 h-40 bg-neon-cyan-DEFAULT/10 rounded-full blur-3xl"></div>
-                <div class="absolute -bottom-20 -right-20 w-40 h-40 bg-neon-pink-DEFAULT/10 rounded-full blur-3xl"></div>
-                <span class="text-sm font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT uppercase tracking-wider animate-fade-in" data-translate="serviceLabel">Our Services</span>
-                <h1 class="mt-2 text-5xl sm:text-6xl font-orbitron font-bold animate-slide-up">
-                    <span class="dark:neon-text-cyan light:text-indigo-700" data-translate="servicePersonalWebsiteTitle">Personal Website</span>
-                </h1>
-                <p class="mt-6 text-xl md:text-2xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto animate-fade-in" data-translate="servicePersonalWebsiteTagline">
-                    Create a stunning personal brand presence that showcases your unique story and professional journey.
-                </p>
-            </div>
-
-            <!-- Main Content with Enhanced Styling -->
-            <article class="prose prose-lg dark:prose-invert max-w-none mx-auto">
-                <!-- Introduction Section -->
-                <div class="bg-white dark:bg-slate-800/50 rounded-2xl p-8 shadow-xl dark:shadow-neon-cyan-soft/20 mb-12 animate-fade-in">
-                    <p class="text-lg leading-relaxed" data-translate="servicePersonalWebsiteP1">
-                        At Idea to App, we specialize in creating personalized websites that reflect your unique identity and professional goals. Whether you're a freelancer, creative professional, or entrepreneur, we'll help you build a compelling online presence that connects with your audience.
-                    </p>
-                </div>
-
-                <!-- Process Section with Icons -->
-                <div class="mb-16">
-                    <h2 class="text-3xl font-bold mb-8 flex items-center gap-3 animate-slide-up">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500 dark:text-neon-cyan-DEFAULT"><path d="M12 2v4"/><path d="M12 18v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="m16.24 16.24 2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="m16.24 7.76 2.83-2.83"/></svg>
-                        <span data-translate="servicePersonalWebsiteSub1Title">Our Development Process</span>
-                    </h2>
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-slide-up">
-                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-neon-cyan-DEFAULT">Discovery & Planning</h3>
-                            <p class="text-slate-600 dark:text-slate-300">Understanding your goals, target audience, and unique value proposition.</p>
-                        </div>
-                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-slide-up">
-                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-neon-cyan-DEFAULT">Design & Branding</h3>
-                            <p class="text-slate-600 dark:text-slate-300">Creating a unique visual identity that reflects your personality and brand.</p>
-                        </div>
-                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-slide-up">
-                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-neon-cyan-DEFAULT">Development</h3>
-                            <p class="text-slate-600 dark:text-slate-300">Building a responsive, fast, and SEO-friendly website with modern technologies.</p>
-                        </div>
-                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-slide-up">
-                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-neon-cyan-DEFAULT">Launch & Support</h3>
-                            <p class="text-slate-600 dark:text-slate-300">Smooth deployment and ongoing maintenance to keep your site running perfectly.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Features Section -->
-                <div class="mb-16">
-                    <h2 class="text-3xl font-bold mb-8 flex items-center gap-3 animate-slide-up">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500 dark:text-neon-cyan-DEFAULT"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
-                        <span>Website Features</span>
-                    </h2>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-4 text-center shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-fade-in">
-                            <h3 class="font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">Portfolio</h3>
-                            <p class="text-sm text-slate-600 dark:text-slate-300">Showcase your work and projects</p>
-                        </div>
-                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-4 text-center shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-fade-in">
-                            <h3 class="font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">Blog</h3>
-                            <p class="text-sm text-slate-600 dark:text-slate-300">Share your thoughts and expertise</p>
-                        </div>
-                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-4 text-center shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-fade-in">
-                            <h3 class="font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">Contact</h3>
-                            <p class="text-sm text-slate-600 dark:text-slate-300">Easy communication channels</p>
-                        </div>
-                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-4 text-center shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-fade-in">
-                            <h3 class="font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">SEO</h3>
-                            <p class="text-sm text-slate-600 dark:text-slate-300">Optimized for search engines</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pricing Section -->
-                <div class="mb-16">
-                    <h2 class="text-3xl font-bold mb-8 text-center animate-slide-up">Choose Your Plan</h2>
-                    <div class="grid md:grid-cols-3 gap-8">
-                        <!-- Basic Plan -->
-                        <div class="bg-white dark:bg-slate-800/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl dark:hover:shadow-neon-cyan-soft/20 transition-all transform hover:-translate-y-1 animate-fade-in">
-                            <div class="text-center mb-6">
-                                <h3 class="text-2xl font-bold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">Basic</h3>
-                                <p class="text-4xl font-bold mb-4">$799<span class="text-lg text-slate-500">/project</span></p>
-                                <p class="text-slate-600 dark:text-slate-300">Perfect for personal branding</p>
-                            </div>
-                            <ul class="space-y-4 mb-8">
-                                <li class="flex items-center gap-2">
-                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    <span>5 Pages Website</span>
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    <span>Mobile Responsive</span>
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    <span>Contact Form</span>
-                                </li>
-                            </ul>
-                            <a href="index.html#contact" class="block text-center bg-indigo-600 hover:bg-indigo-700 dark:bg-neon-cyan-DEFAULT/80 dark:hover:bg-neon-cyan-DEFAULT text-white font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-105">Get Started</a>
-                        </div>
-
-                        <!-- Professional Plan -->
-                        <div class="bg-white dark:bg-slate-800/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl dark:hover:shadow-neon-cyan-soft/20 transition-all transform hover:-translate-y-1 animate-fade-in">
-                            <div class="text-center mb-6">
-                                <h3 class="text-2xl font-bold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">Professional</h3>
-                                <p class="text-4xl font-bold mb-4">$1,499<span class="text-lg text-slate-500">/project</span></p>
-                                <p class="text-slate-600 dark:text-slate-300">For creative professionals</p>
-                            </div>
-                            <ul class="space-y-4 mb-8">
-                                <li class="flex items-center gap-2">
-                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    <span>Portfolio Section</span>
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    <span>Blog Integration</span>
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    <span>SEO Optimization</span>
-                                </li>
-                </ul>
-                            <a href="index.html#contact" class="block text-center bg-indigo-600 hover:bg-indigo-700 dark:bg-neon-cyan-DEFAULT/80 dark:hover:bg-neon-cyan-DEFAULT text-white font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-105">Get Started</a>
-                        </div>
-
-                        <!-- Enterprise Plan -->
-                        <div class="bg-white dark:bg-slate-800/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl dark:hover:shadow-neon-cyan-soft/20 transition-all transform hover:-translate-y-1 animate-fade-in">
-                            <div class="text-center mb-6">
-                                <h3 class="text-2xl font-bold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">Enterprise</h3>
-                                <p class="text-4xl font-bold mb-4">Custom<span class="text-lg text-slate-500">/project</span></p>
-                                <p class="text-slate-600 dark:text-slate-300">For established brands</p>
-                            </div>
-                            <ul class="space-y-4 mb-8">
-                                <li class="flex items-center gap-2">
-                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    <span>Custom Features</span>
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    <span>Advanced Analytics</span>
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    <span>Premium Support</span>
-                                </li>
-                            </ul>
-                            <a href="index.html#contact" class="block text-center bg-indigo-600 hover:bg-indigo-700 dark:bg-neon-cyan-DEFAULT/80 dark:hover:bg-neon-cyan-DEFAULT text-white font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-105">Contact Us</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Enhanced CTA Section -->
-                <div class="mt-16 p-8 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-neon-cyan-DEFAULT/80 dark:to-neon-pink-DEFAULT/80 rounded-2xl shadow-xl dark:shadow-neon-cyan-soft/20 text-center animate-fade-in">
-                    <h3 class="text-2xl font-bold text-white mb-4" data-translate="serviceCTASectionTitle">Ready to Build Your Personal Brand?</h3>
-                    <p class="text-white/90 mb-6 max-w-2xl mx-auto" data-translate="serviceCTASectionP1">
-                        Let's create a website that tells your unique story and connects with your audience.
-                    </p>
-                    <a href="index.html#contact"
-                       class="inline-block bg-white text-indigo-600 dark:text-neon-cyan-DEFAULT font-semibold py-3 px-8 rounded-lg transition-all transform hover:scale-105 hover:shadow-lg"
-                       data-translate="contactUs">Get Started Today</a>
-                </div>
-            </article>
-        </div>
-    </main>
-
-    <!-- Add Animation Styles -->
-    <style>
+        #theme-toggle #theme-icon-sun.hidden,
+        #theme-toggle #theme-icon-moon.hidden {
+            display: none !important;
+        }
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -259,39 +65,283 @@
             animation: slideUp 0.6s ease-out forwards;
         }
     </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-sans transition-colors duration-300">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-md">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-display font-bold dark:neon-text-cyan light:text-indigo-600" >
+                    <img src="assets/img/Idea2AppLogo.png" alt="Idea2App Logo" class="h-8 w-auto">
+                </a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT" >الرئيسية</a>
+                    <a href="services.html" class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT">خدماتنا</a>
+                    <a href="#contact" class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT">التواصل</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button id="theme-toggle" class="p-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-neon-cyan" aria-label="Toggle theme">
+                        <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun text-slate-700 dark:text-slate-200"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                        <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon text-slate-700 dark:text-slate-200 hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                    </button>
+                    <button id="mobile-menu-button" class="md:hidden p-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-neon-cyan">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-800 p-4">
+            <div class="flex flex-col space-y-4">
+                <a href="index.html" class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT">الرئيسية</a>
+                <a href="services.html" class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT">خدماتنا</a>
+                <a href="#contact" class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT">التواصل</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
+        <div class="max-w-4xl mx-auto">
+            <!-- Hero Section -->
+            <div class="text-center mb-16 relative">
+                <div class="absolute -top-20 -left-20 w-40 h-40 bg-neon-cyan-DEFAULT/10 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-20 -right-20 w-40 h-40 bg-neon-pink-DEFAULT/10 rounded-full blur-3xl"></div>
+                <span class="text-sm font-semibold text-indigo-600 dark:text-neon-cyan-DEFAULT uppercase tracking-wider animate-fade-in">خدماتنا</span>
+                <h1 class="mt-2 text-5xl sm:text-6xl font-display font-bold animate-slide-up">
+                    <span class="dark:neon-text-cyan light:text-indigo-700">تطوير المواقع الشخصية</span>
+                </h1>
+                <p class="mt-6 text-xl md:text-2xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto animate-fade-in">
+                    قم ببناء هويتك الرقمية مع موقع شخصي احترافي يعكس شخصيتك ويبرز خبراتك
+                </p>
+            </div>
+
+            <!-- Main Content -->
+            <article class="prose prose-lg dark:prose-invert max-w-none mx-auto">
+                <!-- Introduction Section -->
+                <div class="bg-white dark:bg-slate-800/50 rounded-2xl p-8 shadow-xl dark:shadow-neon-cyan-soft/20 mb-12 animate-fade-in">
+                    <p class="text-lg leading-relaxed">
+                        في عالم رقمي متزايد التنافس، أصبح الموقع الشخصي ضرورة لكل محترف أو شركة صغيرة. نحن نقدم حلولاً مخصصة لإنشاء مواقع شخصية احترافية تعكس هويتك وتبرز خبراتك بشكل مميز.
+                    </p>
+                </div>
+
+                <!-- Features Section -->
+                <div class="mb-16">
+                    <h2 class="text-3xl font-bold mb-8 flex items-center gap-3 animate-slide-up">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500 dark:text-neon-cyan-DEFAULT"><path d="M12 2v4"/><path d="M12 18v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="m16.24 16.24 2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="m16.24 7.76 2.83-2.83"/></svg>
+                        <span>مميزات المواقع الشخصية</span>
+                    </h2>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-slide-up">
+                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-neon-cyan-DEFAULT">تصميم مخصص</h3>
+                            <p class="text-slate-600 dark:text-slate-300">تصميم فريد يعكس شخصيتك وهوية علامتك التجارية</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-slide-up">
+                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-neon-cyan-DEFAULT">تجربة مستخدم سلسة</h3>
+                            <p class="text-slate-600 dark:text-slate-300">واجهة سهلة الاستخدام مع تجربة تصفح سلسة</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-slide-up">
+                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-neon-cyan-DEFAULT">تحسين محركات البحث</h3>
+                            <p class="text-slate-600 dark:text-slate-300">تحسين الموقع للظهور في نتائج البحث الأولى</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800/50 rounded-xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-neon-cyan-soft/20 transition-all animate-slide-up">
+                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 dark:text-neon-cyan-DEFAULT">توافق مع جميع الأجهزة</h3>
+                            <p class="text-slate-600 dark:text-slate-300">تصميم متجاوب يعمل على جميع الأجهزة والشاشات</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pricing Section -->
+                <div class="mb-16">
+                    <h2 class="text-3xl font-bold mb-8 text-center animate-slide-up">اختر خطة تناسبك</h2>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Basic Plan -->
+                        <div class="bg-white dark:bg-slate-800/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl dark:hover:shadow-neon-cyan-soft/20 transition-all transform hover:-translate-y-1 animate-fade-in">
+                            <div class="text-center mb-6">
+                                <h3 class="text-2xl font-bold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">الأساسي</h3>
+                                <p class="text-4xl font-bold mb-4">$999<span class="text-lg text-slate-500">/موقع</span></p>
+                                <p class="text-slate-600 dark:text-slate-300">للمهنيين المستقلين</p>
+                            </div>
+                            <ul class="space-y-4 mb-8">
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>تصميم بسيط وأنيق</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>5 صفحات</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>دعم بالبريد الإلكتروني</span>
+                                </li>
+                            </ul>
+                            <a href="index.html#contact" class="block text-center bg-indigo-600 hover:bg-indigo-700 dark:bg-neon-cyan-DEFAULT/80 dark:hover:bg-neon-cyan-DEFAULT text-white font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-105">ابدأ الآن</a>
+                        </div>
+
+                        <!-- Professional Plan -->
+                        <div class="bg-white dark:bg-slate-800/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl dark:hover:shadow-neon-cyan-soft/20 transition-all transform hover:-translate-y-1 animate-fade-in">
+                            <div class="text-center mb-6">
+                                <h3 class="text-2xl font-bold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">احترافي</h3>
+                                <p class="text-4xl font-bold mb-4">$1,999<span class="text-lg text-slate-500">/موقع</span></p>
+                                <p class="text-slate-600 dark:text-slate-300">للشركات الصغيرة</p>
+                            </div>
+                            <ul class="space-y-4 mb-8">
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>تصميم مخصص متقدم</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>10 صفحات</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>دعم متميز</span>
+                                </li>
+                            </ul>
+                            <a href="index.html#contact" class="block text-center bg-indigo-600 hover:bg-indigo-700 dark:bg-neon-cyan-DEFAULT/80 dark:hover:bg-neon-cyan-DEFAULT text-white font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-105">ابدأ الآن</a>
+                        </div>
+
+                        <!-- Enterprise Plan -->
+                        <div class="bg-white dark:bg-slate-800/50 rounded-2xl p-8 shadow-xl hover:shadow-2xl dark:hover:shadow-neon-cyan-soft/20 transition-all transform hover:-translate-y-1 animate-fade-in">
+                            <div class="text-center mb-6">
+                                <h3 class="text-2xl font-bold text-indigo-600 dark:text-neon-cyan-DEFAULT mb-2">متقدم</h3>
+                                <p class="text-4xl font-bold mb-4">$2,999<span class="text-lg text-slate-500">/موقع</span></p>
+                                <p class="text-slate-600 dark:text-slate-300">للشركات الكبيرة</p>
+                            </div>
+                            <ul class="space-y-4 mb-8">
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>تصميم فريد من نوعه</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>عدد صفحات غير محدود</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>دعم على مدار الساعة</span>
+                                </li>
+                            </ul>
+                            <a href="index.html#contact" class="block text-center bg-indigo-600 hover:bg-indigo-700 dark:bg-neon-cyan-DEFAULT/80 dark:hover:bg-neon-cyan-DEFAULT text-white font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-105">تواصل معنا</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Section -->
+                <section class="py-16 bg-slate-100 dark:bg-slate-800 rounded-xl mt-16">
+                    <div class="container mx-auto px-6 lg:px-8">
+                        <h2 class="text-3xl font-bold text-center mb-4">مستعد تبدأ؟</h2>
+                        <p class="text-center text-lg text-slate-600 dark:text-slate-300 mb-12 max-w-2xl mx-auto">
+                            تواصل معنا الآن واحصل على استشارة مجانية
+                        </p>
+                        <div class="flex flex-col gap-4 w-full">
+                            <a href="https://wa.me/01104532940" target="_blank"
+                                class="w-full py-3 rounded-lg text-white font-semibold text-lg flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 transition">
+                                <svg width="22" height="22" fill="currentColor" class="text-white">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.031-.967-.273-.099-.471-.148-.67.15-.198.297-.767.966-.94 1.164-.173.198-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.372-.01-.571-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.099 3.2 5.077 4.363.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.288.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                                </svg>
+                                WhatsApp
+                            </a>
+                            <a href="https://m.me/your-page" target="_blank"
+                                class="w-full py-3 rounded-lg text-white font-semibold text-lg flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 transition">
+                                <svg width="22" height="22" fill="currentColor" class="text-white">
+                                    <path d="M12 2C6.477 2 2 6.037 2 11.02c0 2.37 1.01 4.515 2.7 6.13V22l2.48-1.36c1.13.31 2.34.48 3.62.48 5.523 0 10-4.037 10-9.02S17.523 2 12 2zm1.19 12.96l-3.06-3.26-5.96 3.26 6.56-6.96 3.13 3.26 5.89-3.26-6.56 6.96z"/>
+                                </svg>
+                                Messenger
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </article>
+        </div>
+    </main>
 
     <footer id="contact" class="bg-slate-800 dark:bg-black text-slate-300 dark:text-slate-400 py-12 mt-16">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-3 gap-8 mb-8">
                 <div>
-                    <h3 class="text-xl font-orbitron font-semibold mb-3 text-white dark:neon-text-cyan" data-translate="companyName">Idea to App</h3>
-                    <p class="mb-2" data-translate="footerTagline">Turning your brilliant ideas into exceptional applications. Experienced team (3+ years).</p>
-                    <p data-translate="footerRights">&copy; <span id="currentYear"></span> Idea to App. All rights reserved.</p>
+                    <h3 class="text-xl font-display font-semibold mb-3 text-white dark:neon-text-cyan">Idea to App</h3>
+                    <p class="mb-2">تحويل أفكارك المبتكرة إلى تطبيقات استثنائية. فريق ذو خبرة (3+ سنوات).</p>
+                    <p>&copy; <span id="currentYear"></span> Idea to App. جميع الحقوق محفوظة.</p>
                 </div>
                 <div>
-                    <h4 class="text-lg font-semibold mb-3 text-white" data-translate="footerQuickLinks">Quick Links</h4>
+                    <h4 class="text-lg font-semibold mb-3 text-white">روابط سريعة</h4>
                     <ul>
-                        <li><a href="index.html" class="hover:text-neon-cyan-DEFAULT" data-translate="navHome">Home</a></li>
-                        <li><a href="services.html" class="hover:text-neon-cyan-DEFAULT" data-translate="navServices">Services</a></li>
-                        <li><a href="idea-validation.html" class="hover:text-neon-cyan-DEFAULT" data-translate="serviceIdeaValidationTitle">Idea Validation</a></li>
-                         <li><a href="index.html#contact" class="hover:text-neon-cyan-DEFAULT" data-translate="navContact">Contact Us</a></li>
+                        <li><a href="index.html" class="hover:text-neon-cyan-DEFAULT">الرئيسية</a></li>
+                        <li><a href="services.html" class="hover:text-neon-cyan-DEFAULT">خدماتنا</a></li>
+                        <li><a href="idea-validation.html" class="hover:text-neon-cyan-DEFAULT">التحقق من الأفكار</a></li>
+                        <li><a href="index.html#contact" class="hover:text-neon-cyan-DEFAULT">تواصل معنا</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-lg font-semibold mb-3 text-white" data-translate="footerContactUs">Contact Us</h4>
+                    <h4 class="text-lg font-semibold mb-3 text-white">تواصل معنا</h4>
                     <p class="mb-1"><a href="mailto:contact@ideatoapp.com" class="hover:text-neon-cyan-DEFAULT">contact@ideatoapp.com</a></p>
-                    <p class="mb-3"><a href="https://wa.me/1234567890" target="_blank" class="hover:text-neon-cyan-DEFAULT" data-translate="footerWhatsApp">WhatsApp Us</a></p>
+                    <p class="mb-3"><a href="https://wa.me/201104532940" target="_blank" class="hover:text-neon-cyan-DEFAULT">تواصل عبر WhatsApp</a></p>
                     <div class="flex space-x-4">
-                        <a href="#" aria-label="Facebook" class="hover:text-neon-cyan-DEFAULT transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z"/></svg></a>
-                        <a href="#" aria-label="Instagram" class="hover:text-neon-pink-DEFAULT transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0 3c-3.866 0-7 3.134-7 7s3.134 7 7 7 7-3.134 7-7-3.134-7-7-7zm0 2c2.761 0 5 2.239 5 5s-2.239 5-5 5-5-2.239-5-5 2.239-5 5-5zm5.5 0c-.828 0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5 1.5-.672 1.5-1.5-.672-1.5-1.5-1.5z"/></svg></a>
-                        <a href="#" aria-label="Twitter" class="hover:text-neon-cyan-DEFAULT transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"/></svg></a>
+                        <a href="https://www.facebook.com/ideato.app.official" aria-label="Facebook" class="hover:text-neon-cyan-DEFAULT transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z"/></svg></a>
+                        <a href="https://www.instagram.com/ideato.app/" aria-label="Instagram" class="hover:text-neon-pink-DEFAULT transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0 3c-3.866 0-7 3.134-7 7s3.134 7 7 7 7-3.134 7-7-3.134-7-7-7zm0 2c2.761 0 5 2.239 5 5s-2.239 5-5 5-5-2.239-5-5 2.239-5 5-5zm5.5 0c-.828 0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5 1.5-.672 1.5-1.5-.672-1.5-1.5-1.5z"/></svg></a>
+                        <a href="https://x.com/ideato_app" aria-label="Twitter" class="hover:text-neon-cyan-DEFAULT transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"/></svg></a>
+                        <a href="https://www.linkedin.com/in/ideato-app" aria-label="LinkedIn" class="hover:text-neon-cyan-DEFAULT transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-3v-8h3v8zm-1.5-8.9c-.9 0-1.5-.7-1.5-1.5s.6-1.5 1.5-1.5 1.5.7 1.5 1.5-.6 1.5-1.5 1.5zm5 8.9h-3v-4.9c0-.9.4-1.3 1.3-1.3h.4c.9 0 1.3.4 1.3 1.3v4.9zm-5-8.9c-.9 0-1.5-.7-1.5-1.5s.6-1.5 1.5-1.5 1.5.7 1.5 1.5-.6 1.5-1.5 1.5zm5 8.9h-3v-4.9c0-.9.4-1.3 1.3-1.3h.4c.9 0 1.3.4 1.3 1.3v4.9z"/></svg></a>
+                        <a href="https://github.com/ideato-app" aria-label="GitHub" class="hover:text-neon-cyan-DEFAULT transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.125 17.7c-.312.062-.625.093-.937.093-2.688 0-4.188-1.875-4.188-5.688s1.5-5.688 4.188-5.688c.312 0 .625.031.937.093-.375-1.25-.812-2.406-1.25-3.406-1.562.125-3.093.688-4.5 1.813-1.406 1.125-2.406 2.5-3 4.062-.625 1.562-.969 3.281-.969 5.093 0 1.813.344 3.531.969 5.093.625 1.562 1.625 2.938 3 4.062 1.406 1.125 2.938 1.688 4.5 1.813.438-1 .875-2.156 1.25-3.406z"/></svg></a>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="data.js"></script>
-    <script src="app.js"></script>
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIconSun = document.getElementById('theme-icon-sun');
+        const themeIconMoon = document.getElementById('theme-icon-moon');
+
+        // Check for saved theme preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeIconSun.classList.add('hidden');
+            themeIconMoon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            themeIconSun.classList.remove('hidden');
+            themeIconMoon.classList.add('hidden');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                themeIconSun.classList.remove('hidden');
+                themeIconMoon.classList.add('hidden');
+                localStorage.theme = 'light';
+            } else {
+                document.documentElement.classList.add('dark');
+                themeIconSun.classList.add('hidden');
+                themeIconMoon.classList.remove('hidden');
+                localStorage.theme = 'dark';
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('translate-x-full');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.add('translate-x-full');
+            }
+        });
+
+        // Update copyright year
+        const currentYearSpan = document.getElementById('currentYear');
+        if (currentYearSpan) {
+            currentYearSpan.textContent = new Date().getFullYear();
+        }
+    </script>
 </body>
 </html>
