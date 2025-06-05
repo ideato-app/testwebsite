@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Idea2App</title>
+    <title>Idea2App - تحويل الأفكار إلى تطبيقات</title>
+    <meta name="description" content="نحن نقدم خدمات متكاملة لتحويل أفكارك إلى تطبيقات ومواقع إلكترونية احترافية">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide-react@latest/dist/lucide-react.js"></script>
@@ -33,6 +38,25 @@
         }
     </script>
     <style>
+        /* Base styles */
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+
+        /* RTL specific styles */
+        [dir="rtl"] .hero-section {
+            flex-direction: row-reverse;
+        }
+
+        [dir="rtl"] .hero-content {
+            text-align: right;
+        }
+
+        [dir="rtl"] .flex.justify-end {
+            justify-content: flex-start;
+        }
+
+        /* Existing styles */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -93,52 +117,50 @@
 
         /* Add styles for the hero section layout */
         .hero-section {
-            display: flex; /* Use flexbox for layout */
-            align-items: center; /* Vertically align items */
-            justify-content: space-between; /* Space out items */
-            flex-direction: row; /* Arrange items in a row (image left, text right) */
-            gap: 40px; /* Add some space between the items */
-            padding: 80px 20px; /* Add padding */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            padding: 80px 20px;
         }
 
         .hero-content {
-            flex: 1; /* Allow the content to take up available space */
-            text-align: right; /* Align text to the right */
+            flex: 1;
         }
 
         .hero-image {
-            flex: 1; /* Allow the image container to take up available space */
-            display: flex; /* Use flexbox for the image container */
-            justify-content: center; /* Center the image horizontally */
-            align-items: center; /* Center the image vertically */
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .hero-image img {
-            max-width: 100%; /* Ensure image is responsive */
+            max-width: 100%;
             height: auto;
         }
 
         /* Adjust flex direction for smaller screens */
         @media (max-width: 768px) {
             .hero-section {
-                flex-direction: column; /* Stack items vertically on mobile */
-                padding-top: 20px; /* Further reduce top padding on mobile */
+                flex-direction: column;
+                padding-top: 20px;
             }
             .hero-content,
             .hero-image {
-                flex: none; /* Remove flex: 1 on mobile */
-                width: 100%; /* Allow content and image to take full width */
-                text-align: center; /* Center text on mobile */
+                flex: none;
+                width: 100%;
+                text-align: center;
             }
-             .hero-image {
-                 order: -1; /* Place image above content on mobile */
-                 margin-bottom: 40px; /* Add space below image on mobile */
-             }
-             .hero-content {
-                 margin-bottom: 20px; /* Add space below content on mobile */
-             }
-            .hero-section .flex.justify-end { /* Target the button container */
-                 justify-center; /* Center buttons on mobile */
+            .hero-image {
+                order: -1;
+                margin-bottom: 40px;
+            }
+            .hero-content {
+                margin-bottom: 20px;
+            }
+            .hero-section .flex.justify-end {
+                justify-content: center;
             }
         }
     </style>
@@ -180,18 +202,35 @@
     <!-- Main Content -->
     <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-0 md:py-16">
         <!-- Hero Section -->
-        <section class="relative py-16 md:py-24 overflow-hidden">
-            <div class="hero-section">
-                <div class="hero-content">
-                    <h1 class="text-6xl font-bold mb-4"><span class="typed-text" data-text="نجاحك بيبتدي من هنا"></span><span class="cursor">&nbsp;</span></h1>
-                    <p class="text-xl mb-8">نحن نقدم خدمات متكاملة لتحويل أفكارك إلى تطبيقات ومواقع إلكترونية احترافية</p>
-                    <div class="flex gap-4 justify-end md:justify-end"> <!-- Use gap for spacing, keep justify-end for RTL desktop -->
-                        <a href="#contact" class="bg-purple-600 text-white px-6 py-3 rounded-full text-lg hover:bg-purple-700 transition duration-300">اتصل بنا</a>
-                        <a href="services.html" class="bg-gray-800 text-white px-6 py-3 rounded-full text-lg hover:bg-gray-700 transition duration-300">اكتشف خدماتنا</a>
+        <section class="relative w-full py-16 md:py-24 overflow-hidden border-b border-slate-200 dark:border-slate-700">
+            <!-- Background Elements -->
+            <div class="absolute inset-0 w-full bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-slate-900 dark:to-slate-800"></div>
+            <div class="absolute -top-40 -left-40 w-[800px] h-[800px] bg-neon-cyan-DEFAULT/10 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute -bottom-40 -right-40 w-[800px] h-[800px] bg-neon-pink-DEFAULT/10 rounded-full blur-3xl animate-pulse"></div>
+            
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="hero-section">
+                    <div class="hero-content">
+                        <h1 class="text-6xl font-bold mb-4 animate-slide-up">
+                            <span class="typed-text" data-text="نجاحك بيبتدي من هنا"></span>
+                            <span class="cursor">&nbsp;</span>
+                        </h1>
+                        <p class="text-xl mb-8 text-slate-600 dark:text-slate-300 animate-fade-in">نحن نقدم خدمات متكاملة لتحويل أفكارك إلى تطبيقات ومواقع إلكترونية احترافية</p>
+                        <div class="flex gap-4 justify-end md:justify-end animate-fade-in">
+                            <a href="#contact" class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-4 rounded-full text-lg hover:from-purple-700 hover:to-indigo-700 transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-purple-500/20">
+                                اتصل بنا
+                            </a>
+                            <a href="services.html" class="bg-white dark:bg-slate-800 text-slate-800 dark:text-white px-8 py-4 rounded-full text-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 border border-slate-200 dark:border-slate-700">
+                                اكتشف خدماتنا
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="hero-image">
-                    <img src="assets/img/tech-service/service-details-thumb.png" alt="Hero Image">
+                    <div class="hero-image animate-fade-in">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-indigo-500/20 rounded-2xl blur-xl"></div>
+                            <img src="assets/img/tech-service/service-details-thumb.png" alt="Hero Image" class="transform hover:scale-105 transition duration-300 relative z-10 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xl">
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -200,103 +239,105 @@
 
         <!-- Featured Services -->
         <section class="py-12 md:py-20">
-            <h2 class="text-3xl font-bold text-center mb-10" >خدماتنا</h2>
+            <h2 class="text-3xl font-bold text-center mb-10">خدماتنا</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Web Development -->
+                <!-- تطوير الويب -->
                 <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl dark:border dark:border-slate-700 dark:hover:border-neon-cyan-DEFAULT/50 dark:hover:shadow-neon-cyan-soft transition-all overflow-hidden group">
                     <figure class="relative h-48 sm:h-64 overflow-hidden">
-                        <img src="assets/img/tech-service/Development.png" alt="Web Development Services" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300">
+                        <img src="assets/img/tech-service/Development.png" alt="خدمات تطوير الويب" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     </figure>
                     <div class="p-6">
-                    <h3 class="text-xl font-semibold mb-2 text-indigo-600 dark:text-neon-cyan-DEFAULT" data-translate="serviceWebDevTitle">Web Development</h3>
-                    <p class="text-slate-600 dark:text-slate-400 mb-4" data-translate="serviceWebDevShortDesc">Crafting responsive, high-performance websites tailored to your business needs.</p>
-                        <a href="web-development.html" class="text-indigo-500 dark:text-neon-cyan-DEFAULT/90 hover:underline font-semibold inline-flex items-center gap-2" data-translate="learnMore">
-                            Learn More
+                        <h3 class="text-xl font-semibold mb-2 text-indigo-600 dark:text-neon-cyan-DEFAULT">تطوير مواقع الويب</h3>
+                        <p class="text-slate-600 dark:text-slate-400 mb-4">تصميم مواقع متجاوبة وعالية الأداء مخصصة لتلبية احتياجات عملك.</p>
+                        <a href="web-development.html" class="text-indigo-500 dark:text-neon-cyan-DEFAULT/90 hover:underline font-semibold inline-flex items-center gap-2">
+                            تعرف أكثر
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                         </a>
                     </div>
                 </div>
-
-                <!-- App Development -->
+        
+                <!-- تطوير التطبيقات -->
                 <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl dark:border dark:border-slate-700 dark:hover:border-neon-pink-DEFAULT/50 dark:hover:shadow-neon-pink-soft transition-all overflow-hidden group">
                     <figure class="relative h-48 sm:h-64 overflow-hidden">
-                        <img src="assets/img/tech-service/AppDevelopment.png" alt="App Development Services" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300">
+                        <img src="assets/img/tech-service/AppDevelopment.png" alt="خدمات تطوير التطبيقات" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     </figure>
                     <div class="p-6">
-                    <h3 class="text-xl font-semibold mb-2 text-purple-600 dark:text-neon-pink-DEFAULT" data-translate="serviceAppDevTitle">App Development</h3>
-                    <p class="text-slate-600 dark:text-slate-400 mb-4" data-translate="serviceAppDevShortDesc">Building native and cross-platform mobile apps for iOS, Android, macOS, and Windows.</p>
-                        <a href="app-development.html" class="text-purple-500 dark:text-neon-pink-DEFAULT/90 hover:underline font-semibold inline-flex items-center gap-2" data-translate="learnMore">
-                            Learn More
+                        <h3 class="text-xl font-semibold mb-2 text-purple-600 dark:text-neon-pink-DEFAULT">تطوير التطبيقات</h3>
+                        <p class="text-slate-600 dark:text-slate-400 mb-4">بناء تطبيقات موبايل أصلية وعابرة للمنصات لأنظمة iOS، Android، macOS، وWindows.</p>
+                        <a href="app-development.html" class="text-purple-500 dark:text-neon-pink-DEFAULT/90 hover:underline font-semibold inline-flex items-center gap-2">
+                            تعرف أكثر
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                         </a>
                     </div>
                 </div>
-
-                <!-- AI Services -->
+        
+                <!-- خدمات الذكاء الاصطناعي -->
                 <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl dark:border dark:border-slate-700 dark:hover:border-neon-cyan-DEFAULT/50 dark:hover:shadow-neon-cyan-soft transition-all overflow-hidden group">
                     <figure class="relative h-48 sm:h-64 overflow-hidden">
-                        <img src="assets/img/tech-service/AI-Integration.jpg" alt="AI Integration Services" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300">
+                        <img src="assets/img/tech-service/AI-Integration.jpg" alt="خدمات تكامل الذكاء الاصطناعي" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     </figure>
                     <div class="p-6">
-                    <h3 class="text-xl font-semibold mb-2 text-indigo-600 dark:text-neon-cyan-DEFAULT" data-translate="serviceAIServicesTitle">AI Services</h3>
-                    <p class="text-slate-600 dark:text-slate-400 mb-4" data-translate="serviceAIServicesShortDesc">Integrating AI for automation, insights, and intelligent application features.</p>
-                        <a href="ai-services.html" class="text-indigo-500 dark:text-neon-cyan-DEFAULT/90 hover:underline font-semibold inline-flex items-center gap-2" data-translate="learnMore">
-                            Learn More
+                        <h3 class="text-xl font-semibold mb-2 text-indigo-600 dark:text-neon-cyan-DEFAULT">خدمات الذكاء الاصطناعي</h3>
+                        <p class="text-slate-600 dark:text-slate-400 mb-4">تكامل الذكاء الاصطناعي لأتمتة العمليات واستخلاص الرؤى وميزات ذكية في التطبيقات.</p>
+                        <a href="ai-services.html" class="text-indigo-500 dark:text-neon-cyan-DEFAULT/90 hover:underline font-semibold inline-flex items-center gap-2">
+                            تعرف أكثر
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                         </a>
                     </div>
                 </div>
-
-                <!-- UI/UX Design -->
+        
+                <!-- تصميم واجهات المستخدم وتجربة المستخدم -->
                 <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl dark:border dark:border-slate-700 dark:hover:border-neon-pink-DEFAULT/50 dark:hover:shadow-neon-pink-soft transition-all overflow-hidden group">
                     <figure class="relative h-48 sm:h-64 overflow-hidden">
-                        <img src="assets/img/tech-service/UIUXDesig.png" alt="UI/UX Design Services" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300">
+                        <img src="assets/img/tech-service/UIUXDesig.png" alt="خدمات تصميم UI/UX" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     </figure>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-purple-600 dark:text-neon-pink-DEFAULT" data-translate="serviceUIUXTitle">UI/UX Design</h3>
-                        <p class="text-slate-600 dark:text-slate-400 mb-4" data-translate="serviceUIUXShortDesc">Creating intuitive and engaging user interfaces with exceptional user experience.</p>
-                        <a href="ui-ux-design.html" class="text-purple-500 dark:text-neon-pink-DEFAULT/90 hover:underline font-semibold inline-flex items-center gap-2" data-translate="learnMore">
-                            Learn More
+                        <h3 class="text-xl font-semibold mb-2 text-purple-600 dark:text-neon-pink-DEFAULT">تصميم UI/UX</h3>
+                        <p class="text-slate-600 dark:text-slate-400 mb-4">إنشاء واجهات مستخدم بديهية وجذابة مع تجربة مستخدم استثنائية.</p>
+                        <a href="ui-ux-design.html" class="text-purple-500 dark:text-neon-pink-DEFAULT/90 hover:underline font-semibold inline-flex items-center gap-2">
+                            تعرف أكثر
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                         </a>
                     </div>
                 </div>
-
-                <!-- Security Services -->
+        
+                <!-- خدمات الأمن -->
                 <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl dark:border dark:border-slate-700 dark:hover:border-neon-cyan-DEFAULT/50 dark:hover:shadow-neon-cyan-soft transition-all overflow-hidden group">
                     <figure class="relative h-48 sm:h-64 overflow-hidden">
-                        <img src="assets/img/tech-service/Security.png" alt="Security Services" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300">
+                        <img src="assets/img/tech-service/Security.png" alt="خدمات الأمن" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     </figure>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-indigo-600 dark:text-neon-cyan-DEFAULT" data-translate="serviceSecurityTitle">Security Services</h3>
-                        <p class="text-slate-600 dark:text-slate-400 mb-4" data-translate="serviceSecurityShortDesc">Implementing robust security measures to protect your applications and data.</p>
-                        <a href="security-services.html" class="text-indigo-500 dark:text-neon-cyan-DEFAULT/90 hover:underline font-semibold inline-flex items-center gap-2" data-translate="learnMore">
-                            Learn More
+                        <h3 class="text-xl font-semibold mb-2 text-indigo-600 dark:text-neon-cyan-DEFAULT">خدمات الأمن</h3>
+                        <p class="text-slate-600 dark:text-slate-400 mb-4">تطبيق إجراءات أمان قوية لحماية تطبيقاتك وبياناتك.</p>
+                        <a href="security-testing.html" class="text-indigo-500 dark:text-neon-cyan-DEFAULT/90 hover:underline font-semibold inline-flex items-center gap-2">
+                            تعرف أكثر
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                         </a>
                     </div>
                 </div>
-
-                <!-- App Deployment -->
+        
+                <!-- النشر والتوزيع -->
                 <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl dark:border dark:border-slate-700 dark:hover:border-neon-pink-DEFAULT/50 dark:hover:shadow-neon-pink-soft transition-all overflow-hidden group">
                     <figure class="relative h-48 sm:h-64 overflow-hidden">
-                        <img src="assets/img/tech-service/appDeployment.png" alt="App Deployment Services" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300">
+                        <img src="assets/img/tech-service/appDeployment.png" alt="خدمات النشر والتوزيع" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     </figure>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-purple-600 dark:text-neon-pink-DEFAULT" data-translate="serviceAppDeployTitle">App Deployment</h3>
-                        <p class="text-slate-600 dark:text-slate-400 mb-4" data-translate="serviceAppDeployShortDesc">Seamless deployment to app stores and reliable hosting solutions for your digital assets.</p>
-                        <a href="app-deployment.html" class="text-purple-500 dark:text-neon-pink-DEFAULT/90 hover:underline font-semibold inline-flex items-center gap-2" data-translate="learnMore">
-                            Learn More
+                        <h3 class="text-xl font-semibold mb-2 text-purple-600 dark:text-neon-pink-DEFAULT">النشر و الاستضافة</h3>
+                        <p class="text-slate-600 dark:text-slate-400 mb-4">نشر و استضافة التطبيقات و مواقع الويب عبر منصات مختلفة مع ضمان استقرار الأداء.</p>
+                        <a href="app-deployment.html" class="text-purple-500 dark:text-neon-pink-DEFAULT/90 hover:underline font-semibold inline-flex items-center gap-2">
+                            اتعرف اكتر 
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                         </a>
                     </div>
+                    
                 </div>
+                
             </div>
             <div class="text-center mt-12">
                 <a href="services.html"
@@ -304,35 +345,35 @@
                    data-translate="homeViewAllServices">View All Services</a>
             </div>
         </section>
-
+        
          <!-- About Us Snippet -->
          <section class="py-12 md:py-20 bg-slate-100 dark:bg-slate-800 rounded-xl">
             <div class="container mx-auto px-6 lg:px-8">
-                <h2 class="text-3xl font-bold text-center mb-4" data-translate="homeAboutTitle">Why Choose Idea to App?</h2>
-                <p class="text-center text-lg text-slate-600 dark:text-slate-300 mb-10 max-w-3xl mx-auto" data-translate="homeAboutIntro">
-                    We are a passionate team of developers, designers, and strategists with over 3 years of experience dedicated to turning your concepts into reality. We believe in innovation, quality, and collaborative partnerships.
+                <h2 class="text-3xl font-bold text-center mb-4">لماذا نحن؟</h2>
+                <p class="text-center text-lg text-slate-600 dark:text-slate-300 mb-10 max-w-3xl mx-auto">
+                    فريق محترف من المطورين والمصممين والاستراتيجيين، بخبرة أكتر من 3 سنين في تحويل أفكار عملائنا لواقع ناجح. شغفنا الابتكار، والتزامنا الجودة، وشراكتنا دايمًا مبنية على التعاون والثقة.
                 </p>
                 <div class="grid md:grid-cols-3 gap-8 text-center">
                     <div class="p-6 border border-slate-300 dark:border-slate-700 rounded-lg dark:hover:border-neon-cyan-DEFAULT/70 dark:hover:shadow-neon-cyan-soft transition-all">
                         <div class="text-indigo-500 dark:text-neon-cyan-DEFAULT text-4xl mb-4 inline-block">
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lightbulb"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2" data-translate="homeFeature1Title">Innovative Solutions</h3>
-                        <p class="text-slate-600 dark:text-slate-400" data-translate="homeFeature1Desc">Cutting-edge technology for impactful results, including AI integration and automation.</p>
+                        <h3 class="text-xl font-semibold mb-2">حلول مبتكرة</h3>
+                        <p class="text-slate-600 dark:text-slate-400">بنستخدم أحدث التقنيات علشان نوصل لنتايج ملموسة، من ضمنها دمج الذكاء الاصطناعي والأتمتة لرفع الكفاءة وتسريع النمو.</p>
                     </div>
                     <div class="p-6 border border-slate-300 dark:border-slate-700 rounded-lg dark:hover:border-neon-pink-DEFAULT/70 dark:hover:shadow-neon-pink-soft transition-all">
                          <div class="text-purple-500 dark:text-neon-pink-DEFAULT text-4xl mb-4 inline-block">
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2" data-translate="homeFeature2Title">Quality Focused</h3>
-                        <p class="text-slate-600 dark:text-slate-400" data-translate="homeFeature2Desc">Rigorous testing and development processes ensure robust and reliable applications.</p>
+                        <h3 class="text-xl font-semibold mb-2">التركيز علي الجودة،</h3>
+                        <p class="text-slate-600 dark:text-slate-400" >من خلال خطوات تطوير واختبار صارمة، بنقدّم تطبيقات عالية الاعتمادية والجودة تقدر تعتمد عليها بثقة.</p>
                     </div>
                     <div class="p-6 border border-slate-300 dark:border-slate-700 rounded-lg dark:hover:border-neon-cyan-DEFAULT/70 dark:hover:shadow-neon-cyan-soft transition-all">
                         <div class="text-indigo-500 dark:text-neon-cyan-DEFAULT text-4xl mb-4 inline-block">
                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2" data-translate="homeFeature3Title">Client-Centric</h3>
-                        <p class="text-slate-600 dark:text-slate-400" data-translate="homeFeature3Desc">Your vision is our priority. We collaborate closely from idea validation to deployment.</p>
+                        <h3 class="text-xl font-semibold mb-2" >العميل محور التنفيذ</h3>
+                        <p class="text-slate-600 dark:text-slate-400" >رؤيتك هي أولويتنا. بنشتغل معاك خطوة بخطوة من أول التأكد من الفكرة لحد ما المشروع ينطلق فعليًا.</p>
                     </div>
                 </div>
             </div>
@@ -341,23 +382,23 @@
         <!-- Contact Section -->
         <section class="py-16 bg-slate-100 dark:bg-slate-800 rounded-xl mt-16">
             <div class="container mx-auto px-6 lg:px-8">
-                <h2 class="text-3xl font-bold text-center mb-4" data-translate="contactTitle">Contact Us</h2>
+                <h2 class="text-3xl font-bold text-center mb-4" >تواصل معنا </h2>
                 <p class="text-center text-lg text-slate-600 dark:text-slate-300 mb-12 max-w-2xl mx-auto" data-translate="contactSubtitle">
-                    Ready to start your next project? We're here to help turn your vision into reality.
+                    مستعد تبدأ مشروعك الجديد؟ إحنا جاهزين نساعدك نحول رؤيتك لواقع ملموس بكل احترافية.
                 </p>
                 
                     <!-- Right: Get Started Today -->
                     <div class="bg-white dark:bg-slate-700 rounded-xl shadow p-8 flex flex-col justify-center items-center gap-8">
                         <div class="text-center">
-                            <div class="text-lg font-semibold mb-2" data-translate="contactGetStarted">Get Started Today</div>
-                            <div class="text-slate-600 dark:text-slate-300 mb-4 text-sm" data-translate="contactGetStartedDesc">Book a free consultation and let's discuss your project requirements.</div>
+                            <div class="text-lg font-semibold mb-2" >ابدأ دلوقتي</div>
+                            <div class="text-slate-600 dark:text-slate-300 mb-4 text-sm" >احجز استشارة مجانية دلوقتي.</div>
                         </div>
                         <div class="flex flex-col gap-4 w-full">
                             <a href="https://wa.me/201104532940" target="_blank" class="w-full py-3 rounded-lg text-white font-semibold text-lg flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 transition"><svg width="22" height="22" fill="currentColor" class="text-white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.031-.967-.273-.099-.471-.148-.67.15-.198.297-.767.966-.94 1.164-.173.198-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.372-.01-.571-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.099 3.2 5.077 4.363.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.288.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg> WhatsApp</a>
                             <a href="https://m.me/your-page" target="_blank" class="w-full py-3 rounded-lg text-white font-semibold text-lg flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 transition"><svg width="22" height="22" fill="currentColor" class="text-white"><path d="M12 2C6.477 2 2 6.037 2 11.02c0 2.37 1.01 4.515 2.7 6.13V22l2.48-1.36c1.13.31 2.34.48 3.62.48 5.523 0 10-4.037 10-9.02S17.523 2 12 2zm1.19 12.96l-3.06-3.26-5.96 3.26 6.56-6.96 3.13 3.26 5.89-3.26-6.56 6.96z"/></svg> Messenger</a>
                         </div>
                         <div>
-                            <div class="font-semibold mb-2" data-translate="contactConnect">Stay in touch With Us</div>
+                            <div class="font-semibold mb-2">تابعنا لكل جديد</div>
                             <div class="flex flex-wrap gap-3">
                                 <a href="https://www.facebook.com/ideato.app.official" target="_blank" class="flex items-center gap-2 px-3 py-2 bg-slate-100 dark:bg-slate-800 rounded hover:bg-indigo-100 dark:hover:bg-slate-600 transition"><svg width="20" height="20" fill="currentColor" class="text-blue-600"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg><span class="hidden sm:inline">Facebook</span></a>
                                 <a href="https://x.com/ideato_app" target="_blank" class="flex items-center gap-2 px-3 py-2 bg-slate-100 dark:bg-slate-800 rounded hover:bg-blue-100 dark:hover:bg-slate-600 transition"><svg width="20" height="20" fill="currentColor" class="text-blue-400"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.4.36a9.09 9.09 0 0 1-2.88 1.1A4.52 4.52 0 0 1 16.11 0c-2.5 0-4.52 2.01-4.52 4.5 0 .35.04.7.11 1.03C7.69 5.4 4.07 3.7 1.64.9c-.38.65-.6 1.4-.6 2.2 0 1.52.77 2.86 1.95 3.65A4.48 4.48 0 0 1 .96 6v.06c0 2.13 1.52 3.91 3.56 4.31-.37.1-.76.16-1.16.16-.28 0-.55-.03-.81-.08.55 1.7 2.16 2.94 4.07 2.97A9.05 9.05 0 0 1 0 19.54a12.8 12.8 0 0 0 6.95 2.03c8.34 0 12.9-6.91 12.9-12.9 0-.2 0-.39-.01-.58A9.22 9.22 0 0 0 24 4.59a9.1 9.1 0 0 1-2.61.72A4.48 4.48 0 0 0 23 3z"/></svg><span class="hidden sm:inline">Twitter</span></a>
@@ -377,23 +418,22 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-3 gap-8 mb-8">
                 <div>
-                    <h3 class="text-xl font-orbitron font-semibold mb-3 text-white dark:neon-text-cyan" data-translate="companyName">Idea to App</h3>
-                    <p class="mb-2" data-translate="footerTagline">Turning your brilliant ideas into exceptional applications. Experienced team (3+ years).</p>
+                    <h3 class="text-xl font-orbitron font-semibold mb-3 text-white dark:neon-text-cyan">Idea2App</h3>
+                    <p class="mb-2" data-translate="footerTagline">بنحول أفكارك لحلول رقمية مميزة، من خلال فريق محترف بخبرة تتعدى 3 سنين.</p>
                     <p data-translate="footerRights">&copy; <span id="currentYear"></span> Idea to App. All rights reserved.</p>
                 </div>
                 <div>
-                    <h4 class="text-lg font-semibold mb-3 text-white" data-translate="footerQuickLinks">Quick Links</h4>
+                    <h4 class="text-lg font-semibold mb-3 text-white">Quick Links</h4>
                     <ul>
-                        <li><a href="index.html" class="hover:text-neon-cyan-DEFAULT" data-translate="navHome">Home</a></li>
-                        <li><a href="services.html" class="hover:text-neon-cyan-DEFAULT" data-translate="navServices">Services</a></li>
-                        <li><a href="idea-validation.html" class="hover:text-neon-cyan-DEFAULT" data-translate="serviceIdeaValidationTitle">Idea Validation</a></li>
-                         <li><a href="#contact" class="hover:text-neon-cyan-DEFAULT" data-translate="navContact">Contact Us</a></li>
+                        <li><a href="index.html" class="hover:text-neon-cyan-DEFAULT" >الرئيسية</a></li>
+                        <li><a href="services.html" class="hover:text-neon-cyan-DEFAULT" >خدماتنا</a></li>
+                         <li><a href="#contact" class="hover:text-neon-cyan-DEFAULT" >تواصل معانا</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-lg font-semibold mb-3 text-white" data-translate="footerContactUs">Contact Us</h4>
+                    <h4 class="text-lg font-semibold mb-3 text-white" >التواصل</h4>
                     <p class="mb-1"><a href="mailto:contact@ideatoapp.com" class="hover:text-neon-cyan-DEFAULT">contact@ideatoapp.com</a></p>
-                    <p class="mb-3"><a href="https://wa.me/201104532940" target="_blank" class="hover:text-neon-cyan-DEFAULT" data-translate="footerWhatsApp">WhatsApp Us</a></p>
+                    <p class="mb-3"><a href="https://wa.me/201104532940" target="_blank" class="hover:text-neon-cyan-DEFAULT">WhatsApp</a></p>
                     <div class="flex space-x-4">
                         <a href="https://www.facebook.com/ideato.app.official" aria-label="Facebook" class="hover:text-neon-cyan-DEFAULT transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z"/></svg>
