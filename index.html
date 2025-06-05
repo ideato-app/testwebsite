@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-translate="companyName">Idea to App</title>
+    <title>Idea2App</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide-react@latest/dist/lucide-react.js"></script>
@@ -90,27 +90,77 @@
             from, to { opacity: 1; }
             50% { opacity: 0; }
         }
+
+        /* Add styles for the hero section layout */
+        .hero-section {
+            display: flex; /* Use flexbox for layout */
+            align-items: center; /* Vertically align items */
+            justify-content: space-between; /* Space out items */
+            flex-direction: row; /* Arrange items in a row (image left, text right) */
+            gap: 40px; /* Add some space between the items */
+            padding: 80px 20px; /* Add padding */
+        }
+
+        .hero-content {
+            flex: 1; /* Allow the content to take up available space */
+            text-align: right; /* Align text to the right */
+        }
+
+        .hero-image {
+            flex: 1; /* Allow the image container to take up available space */
+            display: flex; /* Use flexbox for the image container */
+            justify-content: center; /* Center the image horizontally */
+            align-items: center; /* Center the image vertically */
+        }
+
+        .hero-image img {
+            max-width: 100%; /* Ensure image is responsive */
+            height: auto;
+        }
+
+        /* Adjust flex direction for smaller screens */
+        @media (max-width: 768px) {
+            .hero-section {
+                flex-direction: column; /* Stack items vertically on mobile */
+                padding-top: 20px; /* Further reduce top padding on mobile */
+            }
+            .hero-content,
+            .hero-image {
+                flex: none; /* Remove flex: 1 on mobile */
+                width: 100%; /* Allow content and image to take full width */
+                text-align: center; /* Center text on mobile */
+            }
+             .hero-image {
+                 order: -1; /* Place image above content on mobile */
+                 margin-bottom: 40px; /* Add space below image on mobile */
+             }
+             .hero-content {
+                 margin-bottom: 20px; /* Add space below content on mobile */
+             }
+            .hero-section .flex.justify-end { /* Target the button container */
+                 justify-center; /* Center buttons on mobile */
+            }
+        }
     </style>
 </head>
-<body class="bg-light-bg dark:bg-dark-bg text-slate-800 dark:text-slate-200 font-sans transition-colors duration-300">
+<body class="bg-light-bg dark:bg-dark-bg text-slate-900 dark:text-slate-100 font-sans transition-colors duration-300">
     <!-- Header -->
     <header class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-md">
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div class="flex justify-between items-center">
-                <a href="index.html" class="text-2xl font-display font-bold dark:neon-text-cyan light:text-indigo-600" data-translate="companyName">
-                    <img src="assets/img/logo/logo.png" alt="Idea2App Logo" class="h-8 w-auto">
+                <a href="index.html" class="text-2xl font-display font-bold dark:neon-text-cyan light:text-indigo-600" >
+                    <img src="assets/img/Idea2AppLogo.png" alt="Idea2App Logo" class="h-8 w-auto">
                 </a>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT" data-translate="navHome">Home</a>
-                    <a href="services.html" class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT" data-translate="navServices">Services</a>
-                    <a href="#contact" class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT" data-translate="navContact">Contact</a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT" >الرئيسية</a>
+                    <a href="services.html" class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT">خدماتنا</a>
+                    <a href="#contact" class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT">التواصل</a>
             </div>
-                <div class="flex items-center space-x-4">
+                <div class="flex items-center gap-4">
                     <button id="theme-toggle" class="p-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-neon-cyan" aria-label="Toggle theme">
                         <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun text-slate-700 dark:text-slate-200"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
                         <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon text-slate-700 dark:text-slate-200"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
                 </button>
-                    <button id="language-toggle" class="px-4 py-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 text-sm font-semibold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-neon-cyan">EN/AR</button>
                     <button id="mobile-menu-button" class="md:hidden p-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-neon-cyan">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
                 </button>
@@ -120,43 +170,28 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-800 p-4">
             <div class="flex flex-col space-y-4">
-                <a href="index.html" class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT" data-translate="navHome">Home</a>
-                <a href="services.html" class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT" data-translate="navServices">Services</a>
-                <a href="#contact" class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT" data-translate="navContact">Contact</a>
+                <a href="index.html" class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT">الرئيسية</a>
+                <a href="services.html" class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT">خدماتنا</a>
+                <a href="#contact" class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT">التواصل</a>
             </div>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-0 md:py-16">
         <!-- Hero Section -->
         <section class="relative py-16 md:py-24 overflow-hidden">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="text-center md:text-left">
-                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-display font-bold mb-6 leading-tight">
-                <span class="dark:neon-text-cyan light:text-indigo-700" data-translate="homeHeroTitle1">Idea to App:</span>
-                <span class="block sm:inline dark:neon-text-pink light:text-purple-700 typed-text" data-text="We Bring Your Visions to Life" data-translate="homeHeroTitle2"></span>
-            </h1>
-                    <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto md:mx-0 text-slate-600 dark:text-slate-300" data-translate="homeHeroSubtitle">
-                Transforming innovative ideas into powerful software solutions. From web and mobile apps to AI integration, our experienced team (3+ years of expertise!) is ready to build your next big thing.
-            </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-            <a href="services.html"
-                           class="inline-block bg-indigo-600 hover:bg-indigo-700 dark:bg-neon-cyan-DEFAULT/80 dark:hover:bg-neon-cyan-DEFAULT text-white font-semibold py-3 px-8 rounded-lg text-lg transition-all transform hover:scale-105 dark:shadow-neon-cyan-soft dark:hover:shadow-neon-cyan"
-               data-translate="homeExploreServices">Explore Our Services</a>
-                        <a href="#contact"
-                           class="inline-block bg-white dark:bg-slate-800 border-2 border-indigo-600 dark:border-neon-cyan-DEFAULT text-indigo-600 dark:text-neon-cyan-DEFAULT font-semibold py-3 px-8 rounded-lg text-lg transition-all transform hover:scale-105 hover:bg-indigo-50 dark:hover:bg-slate-700"
-                           data-translate="contactUs">Contact Us</a>
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1 class="text-6xl font-bold mb-4"><span class="typed-text" data-text="نجاحك بيبتدي من هنا"></span><span class="cursor">&nbsp;</span></h1>
+                    <p class="text-xl mb-8">نحن نقدم خدمات متكاملة لتحويل أفكارك إلى تطبيقات ومواقع إلكترونية احترافية</p>
+                    <div class="flex gap-4 justify-end md:justify-end"> <!-- Use gap for spacing, keep justify-end for RTL desktop -->
+                        <a href="#contact" class="bg-purple-600 text-white px-6 py-3 rounded-full text-lg hover:bg-purple-700 transition duration-300">اتصل بنا</a>
+                        <a href="services.html" class="bg-gray-800 text-white px-6 py-3 rounded-full text-lg hover:bg-gray-700 transition duration-300">اكتشف خدماتنا</a>
                     </div>
                 </div>
-                <div class="relative">
-                    <div class="px-4 sm:px-6 lg:px-8 max-w-2xl mx-auto">
-                        <div class="relative">
-                            <img src="assets/img/tech-service/service-details-thumb.png" alt="Software Development Services" class="w-full h-auto rounded-2xl shadow-2xl dark:shadow-neon-cyan-soft object-contain">
-                            <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-neon-pink-DEFAULT/20 rounded-full blur-3xl"></div>
-                            <div class="absolute -top-6 -right-6 w-32 h-32 bg-neon-cyan-DEFAULT/20 rounded-full blur-3xl"></div>
-                        </div>
-                    </div>
+                <div class="hero-image">
+                    <img src="assets/img/tech-service/service-details-thumb.png" alt="Hero Image">
                 </div>
             </div>
         </section>
@@ -165,7 +200,7 @@
 
         <!-- Featured Services -->
         <section class="py-12 md:py-20">
-            <h2 class="text-3xl font-bold text-center mb-10" data-translate="homeServicesTitle">Our Core Services</h2>
+            <h2 class="text-3xl font-bold text-center mb-10" >خدماتنا</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Web Development -->
                 <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl dark:border dark:border-slate-700 dark:hover:border-neon-cyan-DEFAULT/50 dark:hover:shadow-neon-cyan-soft transition-all overflow-hidden group">
