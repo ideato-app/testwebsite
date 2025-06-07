@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>التحقق من الأفكار - فكرة إلى تطبيق</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-     <script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
@@ -33,71 +36,144 @@
     </script>
     <style>
         /* ... Same custom styles ... */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #4f46e5; border-radius: 4px; }
-        .dark ::-webkit-scrollbar-thumb { background: #818cf8; }
-        .neon-text-cyan { text-shadow: 0 0 5px theme('colors.neon-cyan'), 0 0 10px theme('colors.neon-cyan'); }
-        .neon-text-pink { text-shadow: 0 0 5px theme('colors.neon-pink'), 0 0 10px theme('colors.neon-pink'); }
-         .dark .neon-glow-cyan {
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #4f46e5;
+            border-radius: 4px;
+        }
+
+        .dark ::-webkit-scrollbar-thumb {
+            background: #818cf8;
+        }
+
+        .neon-text-cyan {
+            text-shadow: 0 0 5px theme('colors.neon-cyan'), 0 0 10px theme('colors.neon-cyan');
+        }
+
+        .neon-text-pink {
+            text-shadow: 0 0 5px theme('colors.neon-pink'), 0 0 10px theme('colors.neon-pink');
+        }
+
+        .dark .neon-glow-cyan {
             box-shadow: 0 0 8px 2px rgb(0 255 255 / 0.6), 0 0 12px 4px rgb(0 255 255 / 0.4);
             border-color: rgb(0 255 255 / 0.7);
         }
-         .dark .neon-glow-pink {
+
+        .dark .neon-glow-pink {
             box-shadow: 0 0 8px 2px rgb(255 0 255 / 0.6), 0 0 12px 4px rgb(255 0 255 / 0.4);
             border-color: rgb(255 0 255 / 0.7);
         }
+
         /* Ensure hidden class strongly hides the theme icons */
         #theme-toggle #theme-icon-sun.hidden,
         #theme-toggle #theme-icon-moon.hidden {
             display: none !important;
         }
+
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
+
         @keyframes slideUp {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
+
         .animate-fade-in {
             animation: fadeIn 0.6s ease-out forwards;
         }
+
         .animate-slide-up {
             animation: slideUp 0.6s ease-out forwards;
         }
     </style>
 </head>
+
 <body class="bg-light-bg dark:bg-dark-bg text-slate-900 dark:text-slate-100">
     <!-- Navigation -->
-    <header class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-md">
-        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div class="flex justify-between items-center">
-                <a href="index.html" class="text-2xl font-display font-bold dark:neon-text-cyan light:text-indigo-600" >
-                    <img src="assets/img/Idea2AppLogo.png" alt="Idea2App Logo" class="h-8 w-auto">
-                </a>
+    <header class="bg-white dark:bg-slate-800 shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center space-x-2 rtl:space-x-reverse">
+                        <img src="assets/img/logo/favs.png" alt="Idea2App Logo" class="h-8 w-auto">
+                        <span class="text-xl font-bold text-indigo-600 dark:text-neon-cyan-DEFAULT">Idea2App</span>
+                    </a>
+                </div>
                 <div class="hidden md:flex items-center gap-8">
-                    <a href="index.html" class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT" >الرئيسية</a>
-                    <a href="services.html" class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT">خدماتنا</a>
-                    <a href="#contact" class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT">التواصل</a>
-            </div>
+                    <a href="index.html"
+                        class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT">الرئيسية</a>
+                    <a href="services.html"
+                        class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT">خدماتنا</a>
+                    <a href="#contact"
+                        class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT">التواصل</a>
+                </div>
                 <div class="flex items-center gap-4">
-                    <button id="theme-toggle" class="p-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-neon-cyan" aria-label="Toggle theme">
-                        <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun text-slate-700 dark:text-slate-200"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
-                        <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon text-slate-700 dark:text-slate-200 hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-                </button>
-                    <button id="mobile-menu-button" class="md:hidden p-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-neon-cyan">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-                </button>
+                    <button id="theme-toggle"
+                        class="p-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-neon-cyan"
+                        aria-label="Toggle theme">
+                        <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-sun text-slate-700 dark:text-slate-200">
+                            <circle cx="12" cy="12" r="4" />
+                            <path d="M12 2v2" />
+                            <path d="M12 20v2" />
+                            <path d="m4.93 4.93 1.41 1.41" />
+                            <path d="m17.66 17.66 1.41 1.41" />
+                            <path d="M2 12h2" />
+                            <path d="M20 12h2" />
+                            <path d="m6.34 17.66-1.41 1.41" />
+                            <path d="m19.07 4.93-1.41 1.41" />
+                        </svg>
+                        <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-moon text-slate-700 dark:text-slate-200 hidden">
+                            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                        </svg>
+                    </button>
+                    <button id="mobile-menu-button"
+                        class="md:hidden p-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-neon-cyan">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="4" x2="20" y1="12" y2="12" />
+                            <line x1="4" x2="20" y1="6" y2="6" />
+                            <line x1="4" x2="20" y1="18" y2="18" />
+                        </svg>
+                    </button>
                 </div>
             </div>
         </nav>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-800 p-4">
             <div class="flex flex-col space-y-4">
-                <a href="index.html" class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT">الرئيسية</a>
-                <a href="services.html" class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT">خدماتنا</a>
-                <a href="#contact" class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT">التواصل</a>
+                <a href="index.html"
+                    class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT">الرئيسية</a>
+                <a href="services.html"
+                    class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT">خدماتنا</a>
+                <a href="#contact"
+                    class="nav-link text-base font-medium hover:text-indigo-500 dark:hover:text-neon-cyan-DEFAULT">التواصل</a>
             </div>
         </div>
     </header>
@@ -108,7 +184,8 @@
             <div class="text-center">
                 <h1 class="text-4xl sm:text-5xl font-display font-bold mb-6">التحقق من الأفكار</h1>
                 <p class="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
-                    نحن نساعدك في تحليل وتقييم أفكارك لضمان نجاحها في السوق
+                    نحن نساعدك في تحليل وتقييم أفكارك لضمان نجاحها في السوق. نقدم منهجية علمية مدروسة لتحويل رؤيتك إلى
+                    مشروع ناجح
                 </p>
             </div>
         </div>
@@ -119,15 +196,157 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-display font-bold text-center mb-12">عملية التحقق من الأفكار</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Process Steps -->
-                <div class="bg-white dark:bg-slate-800 rounded-xl p-6">
+                <div
+                    class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
                     <div class="w-12 h-12 bg-neon-cyan/10 rounded-lg flex items-center justify-center mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-neon-cyan"><path d="M12 2v4"/><path d="M12 18v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="m16.24 16.24 2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="m16.24 7.76 2.83-2.83"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="text-neon-cyan">
+                            <path d="M12 2v4" />
+                            <path d="M12 18v4" />
+                            <path d="m4.93 4.93 2.83 2.83" />
+                            <path d="m16.24 16.24 2.83 2.83" />
+                            <path d="M2 12h4" />
+                            <path d="M18 12h4" />
+                            <path d="m4.93 19.07 2.83-2.83" />
+                            <path d="m16.24 7.76 2.83-2.83" />
+                        </svg>
                     </div>
                     <h3 class="text-xl font-display font-semibold mb-2">تحليل السوق</h3>
-                    <p class="text-slate-600 dark:text-slate-300">دراسة شاملة للسوق والمنافسين</p>
+                    <p class="text-slate-600 dark:text-slate-300">دراسة شاملة للسوق والمنافسين وتحديد الفرص والتحديات
+                    </p>
                 </div>
-                <!-- ... other process steps ... -->
+
+                <div
+                    class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="w-12 h-12 bg-neon-pink/10 rounded-lg flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="text-neon-pink">
+                            <path d="M12 2v4" />
+                            <path d="M12 18v4" />
+                            <path d="m4.93 4.93 2.83 2.83" />
+                            <path d="m16.24 16.24 2.83 2.83" />
+                            <path d="M2 12h4" />
+                            <path d="M18 12h4" />
+                            <path d="m4.93 19.07 2.83-2.83" />
+                            <path d="m16.24 7.76 2.83-2.83" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-display font-semibold mb-2">دراسة الجدوى</h3>
+                    <p class="text-slate-600 dark:text-slate-300">تقييم الجدوى التقنية والمالية والتشغيلية للمشروع</p>
+                </div>
+
+                <div
+                    class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="w-12 h-12 bg-neon-cyan/10 rounded-lg flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="text-neon-cyan">
+                            <path d="M12 2v4" />
+                            <path d="M12 18v4" />
+                            <path d="m4.93 4.93 2.83 2.83" />
+                            <path d="m16.24 16.24 2.83 2.83" />
+                            <path d="M2 12h4" />
+                            <path d="M18 12h4" />
+                            <path d="m4.93 19.07 2.83-2.83" />
+                            <path d="m16.24 7.76 2.83-2.83" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-display font-semibold mb-2">تطوير النموذج</h3>
+                    <p class="text-slate-600 dark:text-slate-300">تصميم وتطوير نموذج أولي للتحقق من الفكرة</p>
+                </div>
+
+                <div
+                    class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="w-12 h-12 bg-neon-pink/10 rounded-lg flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="text-neon-pink">
+                            <path d="M12 2v4" />
+                            <path d="M12 18v4" />
+                            <path d="m4.93 4.93 2.83 2.83" />
+                            <path d="m16.24 16.24 2.83 2.83" />
+                            <path d="M2 12h4" />
+                            <path d="M18 12h4" />
+                            <path d="m4.93 19.07 2.83-2.83" />
+                            <path d="m16.24 7.76 2.83-2.83" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-display font-semibold mb-2">اختبار السوق</h3>
+                    <p class="text-slate-600 dark:text-slate-300">تجربة الفكرة مع المستخدمين الحقيقيين وجمع التغذية
+                        الراجعة</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology Section -->
+    <section class="py-20 bg-slate-50 dark:bg-slate-800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-display font-bold text-center mb-12">منهجيتنا في التحقق من الأفكار</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="bg-white dark:bg-slate-900 rounded-xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-display font-semibold mb-4 text-indigo-600 dark:text-neon-cyan">التحليل
+                        الشامل</h3>
+                    <ul class="space-y-4 text-slate-600 dark:text-slate-300">
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-neon-cyan mr-2 mt-1" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            تحليل عميق للسوق المستهدف وحجمه ونموه
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-neon-cyan mr-2 mt-1" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            دراسة المنافسين وتحليل نقاط القوة والضعف
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-neon-cyan mr-2 mt-1" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            تحديد احتياجات المستخدمين وتوقعاتهم
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white dark:bg-slate-900 rounded-xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-display font-semibold mb-4 text-indigo-600 dark:text-neon-cyan">التطوير
+                        والاختبار</h3>
+                    <ul class="space-y-4 text-slate-600 dark:text-slate-300">
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-neon-cyan mr-2 mt-1" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            تطوير نموذج أولي سريع للتحقق من الفكرة
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-neon-cyan mr-2 mt-1" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            اختبار مع مجموعة مختارة من المستخدمين
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-neon-cyan mr-2 mt-1" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            تحليل النتائج وتعديل النموذج بناءً على التغذية الراجعة
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -137,87 +356,221 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-display font-bold text-center mb-12">مميزات خدمتنا</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Feature Cards -->
-                <div class="bg-white dark:bg-slate-900 rounded-xl p-6">
+                <div
+                    class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
                     <div class="w-12 h-12 bg-neon-pink/10 rounded-lg flex items-center justify-center mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-neon-pink"><path d="M12 2v4"/><path d="M12 18v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="m16.24 16.24 2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="m16.24 7.76 2.83-2.83"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="text-neon-pink">
+                            <path d="M12 2v4" />
+                            <path d="M12 18v4" />
+                            <path d="m4.93 4.93 2.83 2.83" />
+                            <path d="m16.24 16.24 2.83 2.83" />
+                            <path d="M2 12h4" />
+                            <path d="M18 12h4" />
+                            <path d="m4.93 19.07 2.83-2.83" />
+                            <path d="m16.24 7.76 2.83-2.83" />
+                        </svg>
                     </div>
                     <h3 class="text-xl font-display font-semibold mb-2">تحليل شامل</h3>
-                    <p class="text-slate-600 dark:text-slate-300">تحليل عميق لجميع جوانب فكرتك</p>
+                    <p class="text-slate-600 dark:text-slate-300">تحليل عميق لجميع جوانب فكرتك مع تقارير مفصلة وبيانات
+                        دقيقة</p>
                 </div>
-                <!-- ... other feature cards ... -->
+
+                <div
+                    class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="w-12 h-12 bg-neon-cyan/10 rounded-lg flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="text-neon-cyan">
+                            <path d="M12 2v4" />
+                            <path d="M12 18v4" />
+                            <path d="m4.93 4.93 2.83 2.83" />
+                            <path d="m16.24 16.24 2.83 2.83" />
+                            <path d="M2 12h4" />
+                            <path d="M18 12h4" />
+                            <path d="m4.93 19.07 2.83-2.83" />
+                            <path d="m16.24 7.76 2.83-2.83" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-display font-semibold mb-2">خبرة واسعة</h3>
+                    <p class="text-slate-600 dark:text-slate-300">فريق من الخبراء المتخصصين في تحليل الأفكار وتطوير
+                        المشاريع</p>
+                </div>
+
+                <div
+                    class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="w-12 h-12 bg-neon-pink/10 rounded-lg flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="text-neon-pink">
+                            <path d="M12 2v4" />
+                            <path d="M12 18v4" />
+                            <path d="m4.93 4.93 2.83 2.83" />
+                            <path d="m16.24 16.24 2.83 2.83" />
+                            <path d="M2 12h4" />
+                            <path d="M18 12h4" />
+                            <path d="m4.93 19.07 2.83-2.83" />
+                            <path d="m16.24 7.76 2.83-2.83" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-display font-semibold mb-2">دعم مستمر</h3>
+                    <p class="text-slate-600 dark:text-slate-300">متابعة وتوجيه مستمر طوال مراحل تطوير وتنفيذ المشروع
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white dark:bg-slate-900">
+    <!-- Why Choose Us Section -->
+    <section class="py-20">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-display font-bold text-center mb-12">تواصل معنا</h2>
-            <div class="max-w-2xl mx-auto">
-                <form class="space-y-6">
-                    <div>
-                        <label for="name" class="block text-sm font-medium text-slate-700 dark:text-slate-300">الاسم</label>
-                        <input type="text" id="name" name="name" class="mt-1 block w-full rounded-md border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 shadow-sm focus:border-neon-cyan focus:ring-neon-cyan">
-                    </div>
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-slate-700 dark:text-slate-300">البريد الإلكتروني</label>
-                        <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 shadow-sm focus:border-neon-cyan focus:ring-neon-cyan">
-                    </div>
-                    <div>
-                        <label for="message" class="block text-sm font-medium text-slate-700 dark:text-slate-300">الرسالة</label>
-                        <textarea id="message" name="message" rows="4" class="mt-1 block w-full rounded-md border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 shadow-sm focus:border-neon-cyan focus:ring-neon-cyan"></textarea>
-                    </div>
-                    <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neon-cyan transition-colors duration-200">
-                        إرسال
-                    </button>
-                </form>
+            <h2 class="text-3xl font-display font-bold text-center mb-12">لماذا تختارنا؟</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white dark:bg-slate-900 rounded-xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-display font-semibold mb-4 text-indigo-600 dark:text-neon-cyan">نهج علمي
+                        مدروس</h3>
+                    <p class="text-slate-600 dark:text-slate-300 mb-4">
+                        نتبع منهجية علمية مدروسة في تحليل وتقييم الأفكار، معتمدين على أحدث الأساليب والأدوات في مجال
+                        التحقق من الأفكار وتطوير المشاريع.
+                    </p>
+                    <ul class="space-y-2 text-slate-600 dark:text-slate-300">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-neon-cyan mr-2" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            تحليل بيانات السوق باستخدام أدوات متقدمة
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-neon-cyan mr-2" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            تقارير مفصلة وبيانات دقيقة
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white dark:bg-slate-900 rounded-xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-display font-semibold mb-4 text-indigo-600 dark:text-neon-cyan">خبرة واسعة
+                    </h3>
+                    <p class="text-slate-600 dark:text-slate-300 mb-4">
+                        لدينا فريق من الخبراء المتخصصين في مختلف المجالات، مع خبرة واسعة في تحليل الأفكار وتطوير
+                        المشاريع الناجحة.
+                    </p>
+                    <ul class="space-y-2 text-slate-600 dark:text-slate-300">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-neon-cyan mr-2" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            خبرة في مختلف القطاعات والصناعات
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-neon-cyan mr-2" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            فريق متعدد التخصصات
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-slate-800 dark:bg-black text-slate-300 dark:text-slate-400 py-12">
+    <section class="py-16 bg-slate-100 dark:bg-slate-800 rounded-xl mt-16">
+        <div class="container mx-auto px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-4">مستعد تبدأ؟</h2>
+            <p class="text-center text-lg text-slate-600 dark:text-slate-300 mb-12 max-w-2xl mx-auto">
+                ابعت دلوقتي و احجز استشارتك المجانية
+            </p>
+            <div class="flex flex-col gap-4 w-full">
+                <a href="https://wa.me/01104532940" target="_blank"
+                    class="w-full py-3 rounded-lg text-white font-semibold text-lg flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 transition">
+                    <svg width="22" height="22" fill="currentColor" class="text-white">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.031-.967-.273-.099-.471-.148-.67.15-.198.297-.767.966-.94 1.164-.173.198-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.372-.01-.571-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.099 3.2 5.077 4.363.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.288.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                    </svg>
+                    WhatsApp
+                </a>
+                <a href="https://m.me/your-page" target="_blank"
+                    class="w-full py-3 rounded-lg text-white font-semibold text-lg flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 transition">
+                    <svg width="22" height="22" fill="currentColor" class="text-white">
+                        <path
+                            d="M12 2C6.477 2 2 6.037 2 11.02c0 2.37 1.01 4.515 2.7 6.13V22l2.48-1.36c1.13.31 2.34.48 3.62.48 5.523 0 10-4.037 10-9.02S17.523 2 12 2zm1.19 12.96l-3.06-3.26-5.96 3.26 6.56-6.96 3.13 3.26 5.89-3.26-6.56 6.96z" />
+                    </svg>
+                    Messenger
+                </a>
+            </div>
+        </div>
+    </section>
+
+     <!-- Footer -->
+     <footer id="contact" class="bg-slate-800 dark:bg-black text-slate-300 dark:text-slate-400 py-12 mt-16">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-3 gap-8 mb-8">
                 <div>
-                    <h3 class="text-xl font-display font-semibold mb-3 text-white dark:neon-text-cyan">فكرة إلى تطبيق</h3>
-                    <p class="mb-2">نحول أفكارك المبتكرة إلى تطبيقات استثنائية. فريق ذو خبرة (3+ سنوات).</p>
-                    <p>&copy; <span id="currentYear"></span> فكرة إلى تطبيق. جميع الحقوق محفوظة.</p>
+                    <h3 class="text-xl font-orbitron font-semibold mb-3 text-white dark:neon-text-cyan">Idea2App</h3>
+                    <p class="mb-2">تحويل أفكارك المتميزة إلى تطبيقات استثنائية. فريق ذو خبرة (أكثر من 3 سنوات).</p>
+                    <p>&copy; <span id="currentYear"></span> من الفكرة إلى التطبيق. جميع الحقوق محفوظة.</p>
                 </div>
                 <div>
                     <h4 class="text-lg font-semibold mb-3 text-white">روابط سريعة</h4>
                     <ul>
                         <li><a href="index.html" class="hover:text-neon-cyan-DEFAULT">الرئيسية</a></li>
                         <li><a href="services.html" class="hover:text-neon-cyan-DEFAULT">خدماتنا</a></li>
-                        <li><a href="idea-validation.html" class="hover:text-neon-cyan-DEFAULT">التحقق من الأفكار</a></li>
-                        <li><a href="#contact" class="hover:text-neon-cyan-DEFAULT">اتصل بنا</a></li>
+                        <li><a href="idea-validation.html" class="hover:text-neon-cyan-DEFAULT">التحقق من صحة الفكرة</a></li>
+                        <li><a href="index.html#contact" class="hover:text-neon-cyan-DEFAULT">اتصل بنا</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-lg font-semibold mb-3 text-white">تواصل معنا</h4>
-                    <ul>
-                        <li class="flex items-center space-x-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-neon-cyan"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                            <span>+201104532940</span>
-                        </li>
-                        <li class="flex items-center space-x-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-neon-cyan"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                            <span>contact@ideatoapp.com</span>
-                        </li>
-                    </ul>
-                    <div class="flex space-x-4 mt-4">
-                        <a href="https://www.facebook.com/ideato.app.official" aria-label="Facebook" class="hover:text-neon-cyan-DEFAULT transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z"/></svg></a>
-                        <a href="https://www.instagram.com/ideato.app/" aria-label="Instagram" class="hover:text-neon-pink-DEFAULT transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0 3c-3.866 0-7 3.134-7 7s3.134 7 7 7 7-3.134 7-7-3.134-7-7-7zm0 2c2.761 0 5 2.239 5 5s-2.239 5-5 5-5-2.239-5-5 2.239-5 5-5zm5.5 0c-.828 0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5 1.5-.672 1.5-1.5-.672-1.5-1.5-1.5z"/></svg></a>
-                        <a href="https://x.com/ideato_app" aria-label="Twitter" class="hover:text-neon-cyan-DEFAULT transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"/></svg></a>
-                        <a href="https://www.linkedin.com/in/ideato-app" aria-label="LinkedIn" class="hover:text-neon-cyan-DEFAULT transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-3v-8h3v8zm-1.5-8.9c-.9 0-1.5-.7-1.5-1.5s.6-1.5 1.5-1.5 1.5.7 1.5 1.5-.6 1.5-1.5 1.5zm5 8.9h-3v-4.9c0-.9.4-1.3 1.3-1.3h.4c.9 0 1.3.4 1.3 1.3v4.9zm-5-8.9c-.9 0-1.5-.7-1.5-1.5s.6-1.5 1.5-1.5 1.5.7 1.5 1.5-.6 1.5-1.5 1.5zm5 8.9h-3v-4.9c0-.9.4-1.3 1.3-1.3h.4c.9 0 1.3.4 1.3 1.3v4.9z"/></svg></a>
-                        <a href="https://github.com/ideato-app" aria-label="GitHub" class="hover:text-neon-cyan-DEFAULT transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.125 17.7c-.312.062-.625.093-.937.093-2.688 0-4.188-1.875-4.188-5.688s1.5-5.688 4.188-5.688c.312 0 .625.031.937.093-.375-1.25-.812-2.406-1.25-3.406-1.562.125-3.093.688-4.5 1.813-1.406 1.125-2.406 2.5-3 4.062-.625 1.562-.969 3.281-.969 5.093 0 1.813.344 3.531.969 5.093.625 1.562 1.625 2.938 3 4.062 1.406 1.125 2.938 1.688 4.5 1.813.438-1 .875-2.156 1.25-3.406z"/></svg></a>
+                    <h4 class="text-lg font-semibold mb-3 text-white">راسلنا</h4>
+                    <p class="mb-1"><a href="mailto:contact@ideatoapp.com" class="hover:text-neon-cyan-DEFAULT">contact@ideatoapp.com</a></p>
+                    <p class="mb-3"><a href="https://wa.me/201104532940" target="_blank" class="hover:text-neon-cyan-DEFAULT">تواصل معنا عبر واتساب</a></p>
+                    <div class="flex">
+                        <a href="https://www.facebook.com/ideato.app.official" aria-label="Facebook"
+                            class="hover:text-neon-cyan-DEFAULT transition-colors duration-300 transform hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="currentColor" class="w-6 h-6">
+                                <path
+                                    d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z" />
+                            </svg>
+                        </a>
+                        <a href="https://x.com/ideato_app" aria-label="Twitter"
+                            class="hover:text-neon-cyan-DEFAULT transition-colors duration-300 transform hover:scale-110 ml-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="currentColor" class="w-6 h-6">
+                                <path
+                                    d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/ideato.app/" aria-label="Instagram"
+                            class="hover:text-neon-pink-DEFAULT transition-colors duration-300 transform hover:scale-110 ml-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="currentColor" class="w-6 h-6">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/ideato-app" aria-label="LinkedIn"
+                            class="hover:text-neon-cyan-DEFAULT transition-colors duration-300 transform hover:scale-110 ml-4">
+                            <img src="assets/img/icon/icons8-linked-in-48.png" alt="LinkedIn" class="w-6 h-6">
+                        </a>
+                        <a href="https://github.com/ideato-app" aria-label="GitHub"
+                            class="hover:text-neon-cyan-DEFAULT transition-colors duration-300 transform hover:scale-110 ml-4">
+                            <img src="assets/img/icon/icons8-github-48.png" alt="GitHub" class="w-6 h-6">
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-
     <script>
         // Theme Toggle
         const themeToggle = document.getElementById('theme-toggle');
@@ -271,4 +624,5 @@
         }
     </script>
 </body>
+
 </html>
